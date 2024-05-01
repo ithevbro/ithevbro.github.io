@@ -1,0 +1,368 @@
+.sale_banner_main_container {
+    background-image: url('https://smaki-maki.com/wp-content/themes/smaki/img/smaki-pattern.jpg');
+    background-repeat: repeat;
+    background-size: 450px;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-top: 80px;
+}
+
+.sale_banner_title_container {
+    height: 60px;
+    margin-left: calc(50% + 15px);
+    display: flex;
+    align-items: center;
+}
+
+.sale_banner_title_container div:last-child {
+    max-width: 230px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Montserrat;
+    padding-left: 10px;
+}
+
+.delivery_in {
+    font-family: Caveat;
+    font-size: 40px;
+}
+
+.image_main_wrapper {
+    padding-right: calc((100vw - 923.32px)/ 2);
+    padding-left: calc((100vw - 923.32px)/ 2);
+    gap: 30px;
+    display: flex;
+}
+
+.image_container {
+    width: 50%;
+    position: relative;
+    background-color: white;
+    padding-top: 32.17%;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image_container img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    /* animation */
+    transition: all 0.3s;
+}
+
+.time_delivery {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+/* animation scale image*/
+.image_container:hover .element_image {
+    transform: translate(-50%, -50%) scale(1.1);
+    top: 50%;
+    left: 50%;
+}
+
+.green_circle_content_container {
+    position: relative;
+
+}
+
+.green_circle_content {
+    position: absolute;
+    top: -40px;
+    color: black;
+    left: 10px;
+    font-weight: bold;
+}
+
+.green_circle_content div:first-child {
+    font-weight: 400;
+    position: absolute;
+    top: -20px;
+    color: gray;
+}
+
+.green_circle_image {
+    position: absolute;
+    top: -85px;
+    right: 0px;
+    color: black;
+    height: 90px;
+    width: 90px;
+}
+
+.element_image_here::before {
+    content: 'тут';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    z-index: 1;
+    position: relative;
+    color: white;
+    font-weight: 700;
+}
+
+.green_circle_basket {
+    position: relative;
+    top: 20px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+.green_circle_basket_image {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+}
+
+
+/* fonts in green basket */
+.font_size_first {
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+.font_size_second {
+    font-size: 16px;
+}
+
+.font_size_second span {
+    font-size: 12px;
+}
+
+/*  */
+
+/* when the button is opened */
+
+.open_close_btn_open {
+    height: 22px;
+    display: block;
+    max-width: max-content;
+    margin: 0 auto;
+    position: relative;
+    transition: all .25s ease;
+    transform: translateY(0px);
+}
+
+.open_close_btn_open::before {
+    content: 'АКЦІЇ';
+    width: 94px;
+    height: 48px;
+    background-color: #28262B;
+    position: absolute;
+    left: -70%;
+    top: -2px;
+    border-radius: 0px 0px 150px 150px;
+    color: white;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    font-family: Montserrat;
+}
+
+.open_close_btn_open::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background-image: url('https://smaki-maki.com/wp-content/themes/smaki/img/icons/icon-sales-arrow.svg');
+    background-repeat: no-repeat;
+    left: 13px;
+    top: 20px;
+}
+
+.open_close_btn_open:hover {
+    transform: translateY(-2px);
+    transition: all .25s ease;
+}
+
+/*  */
+
+/* when the button is closed */
+
+
+.open_close_btn_close {
+    height: 22px;
+    display: block;
+    max-width: max-content;
+    margin: 0 auto;
+    position: relative;
+    transition: all .25s ease;
+    transform: translateY(0px);
+}
+
+.open_close_btn_close::before {
+    content: 'АКЦІЇ';
+    width: 94px;
+    height: 48px;
+    background-color: #28262B;
+    position: absolute;
+    left: -70%;
+    top: -2px;
+    border-radius: 0px 0px 150px 150px;
+    color: white;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    font-family: Montserrat;
+}
+
+.open_close_btn_close::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background-image: url('https://smaki-maki.com/wp-content/themes/smaki/img/icons/icon-sales-arrow.svg');
+    background-repeat: no-repeat;
+    left: 13px;
+    top: 20px;
+    transform: rotate(180deg);
+}
+
+.open_close_btn_close:hover {
+    transition: all .25s ease;
+    transform: translateY(2px);
+}
+
+/*  */
+
+
+.close_open_wrapper {
+    max-height: 400px;
+    transition: max-height .5s ease;
+    overflow: hidden;
+}
+
+.open_close_wrapper {
+    margin-top: -15px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .5s, margin-top .6s;
+}
+
+.button_background_cont {
+    background-color: #28262b;
+}
+
+@media (max-width:1600px) {
+    .image_main_wrapper {
+        padding-left: 310px;
+        padding-right: 310px;
+    }
+}
+
+@media (max-width:1200px) {
+    /* .sale_banner_main_container {
+        padding-top: 25px;
+    } */
+
+    .image_main_wrapper {
+        padding-left: 152.42px;
+        padding-right: 152.42px;
+    }
+
+    .sale_banner_title_container {
+        height: 88px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sale_banner_title_container div:last-child {
+        min-width: max-content;
+        padding: 0;
+    }
+
+    .image_container {
+        padding-top: 34.41%;
+    }
+}
+
+@media (max-width:991px) {
+    .sale_banner_main_container {
+        padding-top: 75px;
+    }
+
+    .image_main_wrapper {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .image_container {
+        padding-top: 32.29%;
+    }
+}
+
+@media(max-width:767px) {
+    .sale_banner_title_container {
+        height: 73.78px;
+        display: block;
+        margin-left: 15px;
+    }
+
+    .delivery_in {
+        font-size: 31px;
+    }
+
+    .sale_banner_title_container div:last-child {
+        font-size: 12px;
+    }
+
+    /* .sale_banner_main_container {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    } */
+
+    .image_container {
+        padding-top: 43.97%;
+    }
+
+
+    /*  */
+    .green_circle_image {
+        width: 65px;
+        height: 65px;
+        top: -65px;
+    }
+
+    .green_circle_basket {
+        top: 14px;
+    }
+
+    .font_size_first {
+        font-size: 8px;
+        text-decoration: line-through;
+    }
+
+    .font_size_second {
+        font-size: 12px;
+    }
+
+    .font_size_second span {
+        font-size: 8px;
+    }
+
+    .green_circle_basket_image {
+        width: 15px;
+        height: 15px;
+    }
+
+    .green_circle_content {
+        font-size: 12px;
+    }
+}

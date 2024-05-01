@@ -1,0 +1,80 @@
+.cart {
+    background-image: url('https://smaki-maki.com/wp-content/themes/smaki/img/icons/icon-card-bg-lg-red.svg');
+    width: 110px;
+    height: 110px;
+    position: fixed;
+    top: 0px;
+    right: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.cart_svg img {
+    margin-top: 5px;
+    width: 24px;
+    height: 22px;
+}
+
+.quantity_of_products {
+    align-self: flex-end;
+    position: relative;
+    top: -10px;
+    right: 15px;
+    background-color: aliceblue;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+@media (max-width: 1800px) {
+    .cart {
+        right: 120px;
+    }
+
+}
+
+@media (max-width: 1650px) {
+    .cart {
+        right: 50px;
+    }
+
+}
+
+
+@media (max-width: 1200px) {
+    .cart {
+        width: 70px;
+        height: 70px;
+        background-size: contain;
+        top: 20px;
+        right: 20px;
+    }
+
+    .cart_svg img {
+        margin-top: 1px;
+        width: 16px;
+        height: 16px;
+        margin-bottom: 10px;
+    }
+
+    .quantity_of_products {
+        top: -5px;
+        right: 5px;
+    }
+
+    .cart_price {
+        font-size: 11px;
+    }
+}

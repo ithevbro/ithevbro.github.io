@@ -1,0 +1,140 @@
+.calendar {
+    background-color: white;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px 0px;
+    border-radius: 5px;
+    font-size: 14px;
+    user-select: none;
+    transition: all 0.35s ease;
+    overflow: hidden;
+    max-height: 350px;
+    position: absolute;
+    top: 100%;
+}
+
+.boss_calc {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    position: relative;
+    z-index: 2;
+}
+
+.label_calculator input {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid rgba(152, 152, 157, .5);
+    margin-bottom: 2px;
+    height: 30px;
+    padding: 0 8px;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.calendar.hide {
+    transition: none;
+    max-height: 0px;
+}
+
+.calendar table {
+    padding: 15px;
+}
+
+.calendar td {
+    width: 38.42px;
+    height: 30px;
+    font-weight: 500;
+}
+
+.active_td {
+    color: #921b1b;
+}
+
+.calendar td:hover {
+    color: #921b1b;
+    cursor: pointer;
+}
+
+.calendar th {
+    width: 38.42px;
+    height: 30px;
+    color: #98989d;
+}
+
+.upravlinnya div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.upravlinnya th:nth-child(1):hover,
+.upravlinnya th:nth-child(3):hover {
+    color: #921b1b;
+}
+
+.calendar select {
+    border: 0;
+    outline: 0;
+    font-weight: 700;
+}
+
+.calendar select::-webkit-scrollbar {
+    width: 5px;
+}
+
+.calendar select::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.calendar select::-webkit-scrollbar-thumb {
+    background: #22262a;
+}
+
+.label_calculator {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar_span {
+    position: absolute;
+    color: #98989d;
+    left: 8px;
+    top: 0%;
+    height: 30px;
+    font-weight: 500;
+    line-height: 30px;
+    transition: all 0.25s ease;
+}
+
+.calendar_span.span_bottom {
+    top: 100%;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+.confirm {
+    text-align: right;
+    padding: 8px;
+    border-top: 1px solid #ddd;
+    line-height: 12px;
+}
+
+.confirm button {
+    padding: 5px 15px;
+    background: #921b1b;
+    border: 1px solid #921b1b;
+    color: white;
+    font-weight: 700;
+    border-radius: 28px;
+    transition: all 0.25s ease;
+}
+
+.confirm button:hover {
+    border: 1px solid #921b1b;
+    background: white;
+    color: #921b1b;
+}

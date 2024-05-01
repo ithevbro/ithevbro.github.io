@@ -1,0 +1,213 @@
+.header_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #22262a;
+    width: 100%;
+    clip-path: circle(0%);
+    transition: none;
+}
+
+.header_overlay_hide {
+    transition: all 0.7s;
+    clip-path: circle(100%);
+}
+
+.container {
+    padding: 11vh 60px 4vh 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    max-width: 1520px;
+    margin: 0 auto;
+}
+
+.container h2 {
+    margin-top: auto;
+    margin-bottom: 4.5vh;
+}
+
+.icon_list {
+    width: 280px;
+}
+
+.full_nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.icon_list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+}
+
+.icon_list li {
+    margin-bottom: 2vh;
+    padding-left: 40px;
+    position: relative;
+}
+
+.icon_list img {
+    width: 40px;
+    height: 40px;
+}
+
+.icon_list span {
+    transition: all 0.25s;
+    font-weight: 700;
+}
+
+.icon_list a:hover span {
+    color: #921b1b;
+}
+
+.icon_list li:last-child {
+    font-weight: 400;
+    border-top: 1px solid #98989d;
+    padding-top: 20px;
+    margin-top: 3vh;
+}
+
+.login_area {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 3.5vh;
+    border-bottom: 1px solid #98989d;
+    margin-bottom: 2.5vh;
+}
+
+.login_area img {
+    align-self: flex-start;
+}
+
+.login_area_buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.login_area_buttons button {
+    margin-bottom: 1.5vh;
+    border-radius: 28px;
+    color: #fff;
+    min-width: 240px;
+    padding: 15px 25px;
+    font-weight: 700;
+}
+
+.active_navlink::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #921b1b;
+}
+
+.login_area_buttons button:first-child {
+    border: 1px solid #921b1b;
+    background: #921b1b;
+    transition: all 0.25s ease;
+}
+
+.login_area_buttons button:first-child:hover {
+    border: 1px solid #921b1b;
+    background: #fff;
+    color: #921b1b;
+}
+
+.login_area_buttons button:last-child {
+    border: 1px solid #3aad49;
+    background: #3aad49;
+}
+
+.right_nav ul li {
+    margin-bottom: 2vh;
+    color: rgb(177, 176, 176);
+}
+
+.right_nav ul li a {
+    color: rgb(177, 176, 176);
+    transition: all 0.25s ease;
+}
+
+.right_nav ul li a:hover {
+    color: #921b1b;
+    transition: all 0.25s ease;
+}
+
+.right_nav ul {
+    margin-bottom: 2vh;
+    padding-left: 65px;
+}
+
+.header_overlay footer {
+    margin-top: auto;
+    color: #b1b0b0;
+}
+
+.footer_left {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer_right {
+    display: flex;
+    margin-right: 15px;
+}
+
+.footer_right li {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer_right a:hover svg path {
+    fill: #921b1b;
+}
+
+@media(max-width:992px) {
+    .full_nav {
+        flex-direction: column;
+    }
+
+    .container {
+        overflow-x: scroll;
+        padding: 15px 15px 50px 15px;
+        margin-top: 60px;
+    }
+
+    .container h2 {
+        display: none;
+    }
+
+    .icon_list {
+        width: 100%;
+        border-bottom: 1px solid #98989d;
+    }
+
+    .login_area {
+        padding: 25px 0;
+    }
+
+    .footer_wrapper {
+        padding-left: 60px;
+        flex-direction: column;
+        gap: 15px;
+    }
+}

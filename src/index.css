@@ -1,0 +1,84 @@
+:root {
+    --fs-11: 11px;
+    --fs-12: 12px;
+    --fs-13: 13px;
+    --fs-14: 14px;
+    --fs-15: 15px;
+    --fs-16: 16px;
+    --fs-17: 17px;
+    --fs-19-2: 19.2px;
+    --fs-20-4: 20.4px;
+    --fs-21: 21px;
+    --fs-23: 23px;
+    --fs-25: 25px;
+    --fs-40: 40px;
+    --fs-41: 41px;
+    --fs-45: 45px;
+    --line-h-54px: 54px;
+    --line-h-45px: 45px;
+    --line-h-30px: 30px;
+    --line-h-29-7px: 29.7px;
+    --line-h-28-8px: 28.8px;
+    --line-h-27-6px: 27.6px;
+    --line-h-26px: 26px;
+    --line-h-24px: 24px;
+    --line-h-23-3px: 23.3px;
+    --line-h-23px: 23px;
+    --line-h-22-5px: 22.5px;
+    --line-h-20-8px: 20.8px;
+    --line-h-20-4px: 20.4px;
+    --line-h-20px: 20px;
+    --line-h-18-7px: 18.7px;
+    --line-h-18-2px: 18.2px;
+    --line-h-18px: 18px;
+    --line-h-17px: 17px;
+    --line-h-16-5px: 16.5px;
+    --line-h-16px: 17px;
+    --line-h-15px: 15px;
+    --line-h-14px: 14px;
+    --line-h-13px: 13px;
+    --line-h-12px: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    user-select: none;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+svg path {
+    transition: all 0.25s ease;
+}
+
+@font-face {
+    font-family: Caveat;
+    src: url(/Caveat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(/Montserrat-VariableFont_wght.ttf);
+}
