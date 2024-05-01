@@ -1,8 +1,8 @@
 
 
-function Vacancies () {
+function Vacancies() {
     return (
-        <div>Vacancies</div>
+        <div style={{ margin: '150px' }}>Vacancies</div>
     )
 }
 
