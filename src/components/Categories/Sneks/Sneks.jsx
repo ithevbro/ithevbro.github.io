@@ -2,20 +2,12 @@ import { useEffect, useState } from 'react'
 import SelectFilter from '../../SelectFilter/SelectFilter'
 import style from './sneks.module.css'
 import SneksElement from './SneksElement'
+import { getProds } from '../../../service/services'
+import LoaderMain from '../../Loaders/Loader-main'
 
 function Sneks() {
-
+    let { products, loading } = getProds('snek')
     const [sneksData, setSneksData] = useState([])
-
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    async function fetchData() {
-        let res = await fetch('https://server-8q35.onrender.com/api/snek')
-        let data = await res.json()
-        setSneksData(data)
-    }
 
     return (
         <section>
@@ -25,13 +17,16 @@ function Sneks() {
                     <div></div>
                     <SelectFilter />
                 </div>
-                <div className={style.sneks_products_container}>
-                    {
-                        sneksData && sneksData?.map((item) => {
-                            return <SneksElement key={item._id} data={item}/>
-                        })
-                    }
-                </div>
+                {
+                    loading ? <LoaderMain /> :
+                        <div className={style.sneks_products_container}>
+                            {
+                                products.map((item) => {
+                                    return <SneksElement key={item._id} data={item} />
+                                })
+                            }
+                        </div>
+                }
             </div>
         </section>
     )

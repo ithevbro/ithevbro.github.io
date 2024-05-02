@@ -2,20 +2,12 @@ import { useEffect, useState } from 'react'
 import SelectFilter from '../../SelectFilter/SelectFilter'
 import style from './sets.module.css'
 import SetsElement from './SetsElement'
+import { getProds } from '../../../service/services'
+import LoaderMain from '../../Loaders/Loader-main'
 
 function Sets() {
-
+    let { products, loading } = getProds('sets')
     const [setsData, setSetsData] = useState([])
-
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    async function fetchData() {
-        let res = await fetch('https://server-8q35.onrender.com/api/sets')
-        let data = await res.json()
-        setSetsData(data)
-    }
 
     return (
         <section>
@@ -25,13 +17,18 @@ function Sets() {
                     <div></div>
                     <SelectFilter />
                 </div>
-                <div className={style.sets_products_container}>
-                    {
-                        setsData && setsData?.map((item) => {
-                           return <SetsElement key={item._id} data={item} />
-                        })
-                    }
-                </div>
+
+                {
+                    loading ? <LoaderMain /> :
+                        <div className={style.sets_products_container}>
+                            {
+                                products.map((item) => {
+                                    return <SetsElement key={item._id} data={item} />
+                                })
+                            }
+                        </div>
+                }
+
             </div>
         </section>
     )

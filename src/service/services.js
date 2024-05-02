@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 function getProds(type) {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         let ignore = false
@@ -11,6 +12,7 @@ function getProds(type) {
                 if (!ignore) {
                     const data = await res.json()
                     setProducts(data)
+                    setLoading(false);
                 }
             } catch (error) {
                 console.log(error);
@@ -20,9 +22,10 @@ function getProds(type) {
         fetchData()
 
         return () => { ignore = true }
+
     }, [type])
 
-    return products
+    return { products, loading };
 }
 
 export { getProds }

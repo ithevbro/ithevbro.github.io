@@ -2,21 +2,14 @@ import style from './sushi.module.css'
 import SelectFilter from '../../SelectFilter/SelectFilter'
 import { useEffect, useState } from 'react'
 import SushiElement from './SushiElement'
+import { getProds } from '../../../service/services'
+import LoaderMain from '../../Loaders/Loader-main'
 
 function Sushi() {
-
+    let { products, loading } = getProds('sushi')
     const [selectedSushiFilter, setSelectedSushiFilter] = useState('Всі')
     const [dataSushi, setDataSushi] = useState([])
 
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    async function fetchData() {
-        let res = await fetch('https://server-8q35.onrender.com/api/sushi')
-        let data = await res.json()
-        setDataSushi(data)
-    }
 
     return (
         <section>
@@ -37,13 +30,16 @@ function Sushi() {
                     </ul>
                     <SelectFilter />
                 </div>
-                <div className={style.sushi_products_container}>
-                    {
-                        dataSushi && dataSushi?.map((item) => {
-                            return <SushiElement key={item._id} data={item} />
-                        })
-                    }
-                </div>
+                {
+                    loading ? <LoaderMain /> :
+                        <div className={style.sushi_products_container}>
+                            {
+                                products.map((item) => {
+                                    return <SushiElement key={item._id} data={item} />
+                                })
+                            }
+                        </div>
+                }
                 <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet porro, provident ab distinctio magni exercitationem sit quasi non suscipit sunt placeat totam consequatur accusamus sapiente quidem vero explicabo fuga assumenda!
                     Quasi odio modi repudiandae dolorum eveniet iure quas cupiditate recusandae consequatur odit quam excepturi deserunt, quos, natus ratione reprehenderit, laboriosam possimus sit officia assumenda fugiat libero? Eius ipsam maxime aspernatur.
                     Corporis mollitia cupiditate tempore commodi doloribus? Nemo non hic modi qui nihil! Repudiandae architecto eos delectus a suscipit vitae fugiat sit odit. Autem aliquam molestiae voluptatum assumenda accusamus, fugit labore!
