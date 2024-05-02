@@ -1,7 +1,7 @@
 import style from './sushiElement.module.css'
 
 
-function SushiElement({data}) {
+function SushiElement({ data }) {
     return (
         <div className={style.sushi_product}>
             <div className={style.sushi_over}><img src={data.image} alt="" /></div>
