@@ -7,10 +7,12 @@
     width: 100%;
     clip-path: circle(0%);
     transition: none;
+    visibility: hidden;
 }
 
 .header_overlay_hide {
-    transition: all 0.7s;
+    visibility: visible;
+    transition: clip-path 0.7s;
     clip-path: circle(100%);
 }
 
