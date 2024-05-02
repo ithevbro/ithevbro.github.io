@@ -40,51 +40,9 @@ function Sushi() {
                 <div className={style.sushi_products_container}>
                     {
                         dataSushi && dataSushi?.map((item) => {
-                            return <SushiElement key={item._id} data={item}/>
+                            return <SushiElement key={item._id} data={item} />
                         })
                     }
-                    {/* <div className={style.sushi_product}>
-                        <div className={style.sushi_over}><img src="https://smaki-maki.com/wp-content/uploads/sites/4/2024/03/8_1.web_.jpg" alt="" /></div>
-                        <div className={style.sushi_bottom_info}>
-                            <div className={style.product_weight}>790г</div>
-                            <div className={style.product_title}>Суші бокс №1</div>
-                            <div className={style.sushi_controllers}>
-                                <div className={style.product_price}>515 грн</div>
-                                <div><button className={style.btn_buy}>КУПИТИ</button></div>
-                            </div>
-                        </div>
-                        <div className={style.sushi_hidden_block_info}>
-                            Філадельфія Мікс, Дракон з креветкою, Запечений сирний з мигдалем (для якісного транспортування доставляємо у двох боксах)
-                        </div>
-                    </div>
-                    <div className={style.sushi_product}>
-                        <div className={style.sushi_over}><img src="https://smaki-maki.com/wp-content/uploads/sites/4/2024/03/8_1.web_.jpg" alt="" /></div>
-                        <div className={style.sushi_bottom_info}>
-                            <div className={style.product_weight}>790г</div>
-                            <div className={style.product_title}>Суші бокс №1</div>
-                            <div className={style.sushi_controllers}>
-                                <div className={style.product_price}>515 грн</div>
-                                <div><button className={style.btn_buy}>КУПИТИ</button></div>
-                            </div>
-                        </div>
-                        <div className={style.sushi_hidden_block_info}>
-                            Філадельфія Мікс, Дракон з креветкою, Запечений сирний з мигдалем (для якісного транспортування доставляємо у двох боксах)
-                        </div>
-                    </div>
-                    <div className={style.sushi_product}>
-                        <div className={style.sushi_over}><img src="https://smaki-maki.com/wp-content/uploads/sites/4/2024/03/8_1.web_.jpg" alt="" /></div>
-                        <div className={style.sushi_bottom_info}>
-                            <div className={style.product_weight}>790г</div>
-                            <div className={style.product_title}>Суші бокс №1</div>
-                            <div className={style.sushi_controllers}>
-                                <div className={style.product_price}>515 грн</div>
-                                <div><button className={style.btn_buy}>КУПИТИ</button></div>
-                            </div>
-                        </div>
-                        <div className={style.sushi_hidden_block_info}>
-                            Філадельфія Мікс, Дракон з креветкою, Запечений сирний з мигдалем (для якісного транспортування доставляємо у двох боксах)
-                        </div>
-                    </div> */}
                 </div>
                 <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet porro, provident ab distinctio magni exercitationem sit quasi non suscipit sunt placeat totam consequatur accusamus sapiente quidem vero explicabo fuga assumenda!
                     Quasi odio modi repudiandae dolorum eveniet iure quas cupiditate recusandae consequatur odit quam excepturi deserunt, quos, natus ratione reprehenderit, laboriosam possimus sit officia assumenda fugiat libero? Eius ipsam maxime aspernatur.
@@ -94,6 +52,7 @@ function Sushi() {
                     Error, laudantium, quisquam iure id quasi magnam cumque molestiae odio nostrum incidunt delectus ex optio consequatur expedita iusto quod exercitationem dignissimos libero voluptate ut repudiandae. A nam mollitia ab non!
                     Quaerat, fuga dolor. Culpa qui commodi distinctio, in aperiam rem reprehenderit illum nam cumque doloremque tempora hic, fugit quod tenetur dolorem eos delectus optio molestiae perspiciatis impedit et nostrum assumenda?</div>
             </div>
+
         </section>
     )
 }
