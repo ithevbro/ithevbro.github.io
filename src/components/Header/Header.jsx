@@ -25,9 +25,7 @@ function Header() {
     useEffect(() => {
         if (Object.keys(globalOverlayData).length == 1 && overlaySwitch) {
             document.documentElement.style.overflow = 'hidden'
-        } else if (overlaySwitch) {
-            document.documentElement.style.overflow = 'hidden'
-        } else if (Object.keys(globalOverlayData).length > 1) {
+        } else if (overlaySwitch || Object.keys(globalOverlayData).length > 1) {
             document.documentElement.style.overflow = 'hidden'
         } else {
             document.documentElement.style.overflow = ''
