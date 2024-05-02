@@ -1,12 +1,13 @@
 import SaleBanner from '../../components/SaleBanner/SaleBanner'
 import { Outlet } from "react-router-dom";
+import style from './main.module.css'
 
 function MainPage() {
     return (
-        <div>
+        <main className={style.main_wrapper}>
             <SaleBanner openClose={true} />
             <Outlet />
-        </div>
+        </main>
     )
 }
 
