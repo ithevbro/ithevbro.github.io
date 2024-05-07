@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import SelectFilter from '../../SelectFilter/SelectFilter'
 import style from './sets.module.css'
 import SetsElement from './SetsElement'
@@ -7,7 +6,7 @@ import LoaderMain from '../../Loaders/Loader-main'
 
 function Sets() {
     let { products, loading } = getProds('sets')
-    const [setsData, setSetsData] = useState([])
+
 
     return (
         <section>

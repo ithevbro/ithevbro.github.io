@@ -1,15 +1,14 @@
 import style from './sushi.module.css'
 import SelectFilter from '../../SelectFilter/SelectFilter'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import SushiElement from './SushiElement'
 import { getProds } from '../../../service/services'
 import LoaderMain from '../../Loaders/Loader-main'
 
 function Sushi() {
+
     let { products, loading } = getProds('sushi')
     const [selectedSushiFilter, setSelectedSushiFilter] = useState('Всі')
-    const [dataSushi, setDataSushi] = useState([])
-
 
     return (
         <section>
