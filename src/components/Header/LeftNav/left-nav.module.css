@@ -9,7 +9,7 @@
     flex-direction: column;
     width: 66px;
     box-shadow: 5px 0 10px rgba(0, 0, 0, .2);
-    transition: all 0.25s;
+    transition: transform 0.25s;
     z-index: 2;
 }
 
