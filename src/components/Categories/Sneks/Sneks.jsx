@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import SelectFilter from '../../SelectFilter/SelectFilter'
 import style from './sneks.module.css'
 import SneksElement from './SneksElement'
@@ -7,7 +6,6 @@ import LoaderMain from '../../Loaders/Loader-main'
 
 function Sneks() {
     let { products, loading } = getProds('snek')
-    const [sneksData, setSneksData] = useState([])
 
     return (
         <section>
