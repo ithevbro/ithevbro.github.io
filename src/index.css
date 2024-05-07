@@ -73,6 +73,53 @@ svg path {
     transition: all 0.25s ease;
 }
 
+.prod_buy_btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    color: #fff;
+    background: #3aad49;
+    border: 1px solid #3aad49;
+    font-weight: 700;
+    border-radius: 28px;
+    line-height: 12px;
+    transition: box-shadow 0.25s;
+}
+
+.prod_buy_btn:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+}
+
+.minus_plus {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.minus_plus span {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.minus_plus button {
+    font-size: 24px;
+    line-height: 26px;
+    color: #3aad49;
+    background-color: white;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 15px 0px;
+    height: 26px;
+    width: 26px;
+    transition: all 0.25s;
+}
+
+.minus_plus button:hover {
+    color: white;
+    background-color: #3aad49;
+    box-shadow: none;
+}
+
 @font-face {
     font-family: Caveat;
     src: url(/Caveat-VariableFont_wght.ttf);
