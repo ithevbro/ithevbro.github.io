@@ -121,6 +121,10 @@ svg path {
     box-shadow: none;
 }
 
+footer a.active {
+    color: #921b1b;
+}
+
 @font-face {
     font-family: Caveat;
     src: url(/Caveat-VariableFont_wght.ttf);

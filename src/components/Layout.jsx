@@ -1,6 +1,7 @@
 import Cart from "./Cart/Cart";
 import Header from "./Header/Header";
 import Auth from "./Authentication/Auth";
+import Footer from "./Footer/Footer";
 import { GlobalOverlayState, overlayReducer } from "../global-state/GlobalOverlay";
 import { useReducer } from "react";
 import { Outlet } from "react-router-dom";
@@ -18,6 +19,7 @@ function Layout() {
                 <Cart />
                 <Outlet />
                 <Auth />
+                <Footer />
             </GlobalOverlayState.Provider>
         </BasketContext.Provider>
     )
