@@ -6,6 +6,9 @@ function useBasketActions() {
 
     const cartContext = useContext(BasketContext)
 
+    localStorage.setItem('prod', JSON.stringify(cartContext.cartData))
+
+    
     function addToCart(el) {
         cartContext.setCartData({
             type: 'add',

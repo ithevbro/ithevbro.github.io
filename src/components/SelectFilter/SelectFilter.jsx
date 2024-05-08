@@ -2,7 +2,7 @@ import { useState } from 'react'
 import style from './selectFilter.module.css'
 
 
-function SelectFilter({ choose }) {
+function SelectFilter() {
     const [isOpenSelect, setIsOpenSelect] = useState(false)
     const [selectedElement, setSelectedElement] = useState('Від дешевих до дорогих')
 
@@ -14,7 +14,6 @@ function SelectFilter({ choose }) {
                     onClick={() => {
                         setSelectedElement('Від дешевих до дорогих')
                         setIsOpenSelect(prev => !prev)
-                        choose('Від дешевих до дорогих')
                     }}>
                     <span>Від дешевих до дорогих</span>
                     {selectedElement === 'Від дешевих до дорогих' ? < img src="https://smaki-maki.com/wp-content/themes/smaki/img/icons/icon-select.svg" alt="" /> : null}
@@ -23,7 +22,6 @@ function SelectFilter({ choose }) {
                     onClick={() => {
                         setSelectedElement('Від дорогих до дешевих')
                         setIsOpenSelect(prev => !prev)
-                        choose('Від дорогих до дешевих')
                     }}>
                     <span>Від дорогих до дешевих</span>
                     {selectedElement === 'Від дорогих до дешевих' ? < img src="https://smaki-maki.com/wp-content/themes/smaki/img/icons/icon-select.svg" alt="" /> : null}
@@ -32,7 +30,6 @@ function SelectFilter({ choose }) {
                     onClick={() => {
                         setSelectedElement('За популярністю')
                         setIsOpenSelect(prev => !prev)
-                        choose('За популярністю')
                     }}>
                     <span>За популярністю</span>
                     {selectedElement === 'За популярністю' ? < img src="https://smaki-maki.com/wp-content/themes/smaki/img/icons/icon-select.svg" alt="" /> : null}
