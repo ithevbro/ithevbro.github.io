@@ -7,25 +7,23 @@ import LoaderMain from '../../Loaders/Loader-main'
 function Sets() {
     let { products, loading } = getProds('sets')
 
-
     return (
         <section>
-            <div className={style.sets_main_container}>
+            <div className={style.prod_wrapper}>
                 <h1>Доставка суші сетів у Львові</h1>
-                <div className={style.sets_filter_container}>
+                <ul className={style.prod_filter_container}>
                     <div></div>
                     <SelectFilter />
-                </div>
-
+                </ul>
                 {
                     loading ? <LoaderMain /> :
-                        <div className={style.sets_products_container}>
+                        <ul className={style.prod_container}>
                             {
                                 products.map((item) => {
                                     return <SetsElement key={item._id} data={item} />
                                 })
                             }
-                        </div>
+                        </ul>
                 }
 
             </div>
