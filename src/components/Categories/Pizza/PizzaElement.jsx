@@ -23,11 +23,11 @@ function PizzaElement({ item, style }) {
                 <div className={style.product_controls}>
                     <p><b>{item.price} грн</b></p>
                     <button className="prod_buy_btn">КУПИТИ</button>
-                    {/* <div className="minus_plus">
+                    <div className="minus_plus">
                         <button>-</button>
                         <span>1</span>
                         <button>+</button>
-                    </div> */}
+                    </div>
                 </div>
                 <ul className={style.pizza_size}>
                     <li id={pizzaSize === 22 ? style.current_pizza_size : ''} onClick={() => currentSize(22)}>22 см</li>

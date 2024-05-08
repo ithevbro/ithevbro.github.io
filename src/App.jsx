@@ -11,6 +11,7 @@ import Sets from "./components/Categories/Sets/Sets";
 import Sneks from "./components/Categories/Sneks/Sneks";
 import Salats from "./components/Categories/Salats/Salats";
 import Drinks from "./components/Categories/Drinks/Drinks";
+import Order from "./pages/Order/Order";
 
 function App() {
   const router = createBrowserRouter([
@@ -66,6 +67,10 @@ function App() {
         {
           element: <About />,
           path: '/about'
+        },
+        {
+          element: <Order />,
+          path: '/order'
         },
       ]
     },

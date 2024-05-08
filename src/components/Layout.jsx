@@ -8,8 +8,10 @@ import { BasketContext, reducerBasket } from '../components/Cart/GlobalStateBask
 
 
 function Layout() {
+    let products = localStorage.getItem('prod')
+
     const [globalOverlayData, setGlobalOverlayData] = useReducer(overlayReducer, { main: false })
-    const [cartData, setCartData] = useReducer(reducerBasket, [])
+    const [cartData, setCartData] = useReducer(reducerBasket, JSON.parse(products) || [])
 
     return (
         <BasketContext.Provider value={{ cartData, setCartData }}>

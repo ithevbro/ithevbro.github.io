@@ -24,7 +24,14 @@ function SushiElement({ data }) {
                 <div className={style.product_title}>{data.title}</div>
                 <div className={style.sushi_controllers}>
                     <div className={style.product_price}>{data.price} грн</div>
-                    <div>{id && id.q > 0 ? <div><button onClick={() => plusElement(id)}>plus</button><span>{id ? id.q : 0}</span><button onClick={() => minusElement(id)}>minus</button></div> : <button onClick={() => addToCart(data)} className={style.btn_buy}>КУПИТИ</button>}</div>
+                    {id && id.q > 0 ?
+                        <div className="minus_plus">
+                            <button onClick={() => minusElement(id)}>-</button>
+                            <span>{id ? id.q : 0}</span>
+                            <button onClick={() => plusElement(id)}>+</button>
+                        </div> :
+                        <button onClick={() => addToCart(data)} className="prod_buy_btn">КУПИТИ</button>
+                    }
                 </div>
             </div>
             <div className={style.sushi_hidden_block_info}>

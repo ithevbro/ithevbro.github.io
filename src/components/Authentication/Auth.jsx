@@ -6,6 +6,7 @@ import CloseBtn from "./CloseBtn"
 import { useContext } from "react"
 import { GlobalOverlayState } from "../../global-state/GlobalOverlay"
 import Basket from "../Cart/Basket"
+import ResponseForm from "../../pages/About/ResponseForm"
 
 function Auth() {
     const globalOverlayData = useContext(GlobalOverlayState).globalOverlayData
@@ -26,6 +27,10 @@ function Auth() {
             </div>
             <div className={`${style.basket_wrapper} ${globalOverlayData.basket ? style.active : ''}`}>
                 <Basket />
+            </div>
+            <div className={`${style.form_wrapper} ${globalOverlayData.res ? style.active : ''}`}>
+                <ResponseForm />
+                <CloseBtn />
             </div>
         </div >
     )
