@@ -1,12 +1,8 @@
 .sneks_main_container {
-    max-width: 1520px;
-    margin: 0 auto;
-    padding: 0px 60px;
+    padding: 0 15px;
 }
 
 .sneks_main_container h1 {
-    max-width: 1430px;
-    margin: 0 auto;
     margin-top: 40px;
     margin-bottom: 20px;
     text-align: center;
@@ -21,44 +17,27 @@
 }
 
 .sneks_products_container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
-@media(max-width: 1600px) {
+@media(max-width:768px) {
     .sneks_main_container {
-        padding: 0px 25px 0px 90px;
+        padding: 0 10px;
     }
-}
 
-@media(max-width: 1200px) {
-    .sneks_main_container {
-        padding: 0px 60px;
-    }
-}
-
-@media(max-width: 991px)  {
-    .sneks_main_container {
-        padding: 0px;
-    }
     .sneks_products_container {
-        padding: 0px 15px;
+        gap: 20px;
     }
-
 }
 
-@media(max-width: 768px) {
+@media(max-width:550px) {
     .sneks_products_container {
-        display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        padding: 0px;
-    }
-    .sneks_filter_container {
-        display: block;
+        gap: 10px;
     }
 
     .sneks_main_container {
-        padding: 0px 15px;
+        padding: 0;
     }
 }

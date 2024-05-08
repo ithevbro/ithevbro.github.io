@@ -1,44 +1,42 @@
-.sushi_main_container {
-    max-width: 1520px;
-    margin: 0 auto;
-    padding: 0px 60px;
-}
-
-.sushi_main_container h1 {
-    max-width: 1430px;
-    margin: 0 auto;
+.prod_main_container h1 {
     margin-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     text-align: center;
     font-size: 45px;
     font-family: Caveat;
 }
 
-.sushi_main_container h5 {
-    max-width: 1430px;
-    margin: 0px auto;
-    margin-top: 40px;
-    margin-bottom: 20px;
+.prod_main_container h5 {
+    margin-bottom: 40px;
     text-align: center;
     font-size: 17px;
     border-bottom: 2px solid #921b1b;
     padding-bottom: 10px;
 }
 
-
-.sushi_filter_container {
+.prod_filter_container {
     display: flex;
     justify-content: space-between;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    user-select: none;
+    cursor: pointer;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
-.sushi_filter_list {
+.prod_wrapper {
+    padding: 0 15px;
+}
+
+.prod_filter_list {
     display: flex;
     flex-wrap: wrap;
 }
 
-.sushi_filter_list li {
+.prod_filter_list li {
     padding: 5px 25px;
-    font-weight: 500;
     border: 1px solid #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, .15);
     border-radius: 15px;
@@ -49,7 +47,7 @@
     cursor: pointer;
 }
 
-.sushi_filter_list_active_color {
+.prod_filter_list_active_color {
     padding: 5px 25px;
     font-weight: 500;
     border: 1px solid #fff;
@@ -63,58 +61,40 @@
     transition: all .25s ease;
 }
 
-
-
-.sushi_products_container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+.prod_container {
+    display: flex;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
-
-
-@media(max-width: 1600px) {
-    .sushi_main_container {
-        padding: 0px 25px 0px 90px;
-    }
-}
-
-@media(max-width: 1200px) {
-    .sushi_main_container {
-        padding: 0px 60px;
-    }
-}
-
-@media(max-width: 991px)  {
-    .sushi_main_container {
-        padding: 0px;
+@media(max-width:768px) {
+    .prod_wrapper {
+        padding: 0 10px;
     }
 
-    .sushi_products_container {
-        padding: 0px 15px;
+    .prod_container {
+        gap: 20px;
     }
 
-}
-
-@media(max-width: 768px) {
-    .sushi_filter_container {
-        flex-direction: column-reverse;
-    }
-
-    .sushi_products_container {
-        display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        padding: 0px;
-    }
-    .sushi_main_container {
-        padding: 0px 15px;
-    }
-
-    .sushi_filter_list {
+    .prod_filter_list {
         flex-wrap: nowrap;
         overflow-x: auto;
         scrollbar-color: rgba(0, 0, 0, 0) rgba(255, 255, 255, 0);
-        padding: 10px 0px;
+        padding: 10px 0;
     }
 
+    .prod_filter_container {
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+}
+
+@media(max-width:550px) {
+    .prod_container {
+        gap: 10px;
+    }
+
+    .prod_wrapper {
+        padding: 0;
+    }
 }

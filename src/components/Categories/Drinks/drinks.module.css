@@ -1,0 +1,135 @@
+.section_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.prods_wrapper {
+    padding: 0 15px;
+}
+
+.section_wrapper h1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section_wrapper h3 {
+    border-bottom: 2px solid #921b1b;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.2;
+}
+
+.prod_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.prod_element {
+    width: calc(33.3333% - (30px*2) /3);
+    position: relative;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.prod_element div:first-child {
+    overflow: hidden;
+}
+
+.prod_element:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+}
+
+.prod_element img:hover {
+    transform: scale(1.1);
+}
+
+.prod_element img {
+    transition: transform 0.25s;
+}
+
+.product_controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product_controls p {
+    font-size: 23px;
+}
+
+.product_description {
+    padding: 0 18px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    font-size: 21px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 700;
+}
+
+.weight {
+    color: #98989d;
+}
+
+.filters_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    user-select: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+
+@media(max-width:768px) {
+    .prod_list li {
+        width: calc(50% - 20px/2);
+    }
+
+    .prod_list {
+        gap: 20px;
+    }
+
+    .product_description {
+        padding: 0 10px 10px 10px;
+    }
+
+    .prods_wrapper {
+        padding: 0 10px;
+    }
+}
+
+@media(max-width:550px) {
+    .prod_list li {
+        width: 100%;
+        box-shadow: 0px 0px 4px 1px #dddddd80;
+    }
+
+    .prod_list {
+        gap: 10px;
+        padding: 0;
+    }
+
+    .filters_wrapper {
+        justify-content: flex-start;
+    }
+
+    .prods_wrapper {
+        padding: 0;
+    }
+}

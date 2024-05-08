@@ -13,20 +13,29 @@ function SetsElement({ data }) {
     })
 
     return (
-        <div className={style.sets_product}>
+        <li className={style.sets_product}>
             <div className={style.sets_over}><img src={data.image} alt="" /></div>
             <div className={style.sets_bottom_info}>
                 <div className={style.product_weight}>{data.weight}г</div>
                 <div className={style.product_title}>{data.title}</div>
                 <div className={style.sets_controllers}>
                     <div className={style.product_price}>{data.price} грн</div>
-                    <div>{id && id.q > 0 ? <div><button onClick={() => plusElement(id)}>plus</button><span>{id ? id.q : 0}</span><button onClick={() => minusElement(id)}>minus</button></div> : <button onClick={() => addToCart(data)} className={style.btn_buy}>КУПИТИ</button>}</div>
+                    {
+                        id?.q > 0 ?
+                            <div className="minus_plus">
+                                <button onClick={() => minusElement(id)}>-</button>
+                                <span>{id.q}</span>
+                                <button onClick={() => plusElement(id)}>+</button>
+                            </div>
+                            :
+                            <button onClick={() => addToCart(data)} className="prod_buy_btn">КУПИТИ</button>
+                    }
                 </div>
                 <div className={style.sets_hidden_block_info}>
                     {data.desription}
                 </div>
             </div>
-        </div>
+        </li>
     )
 }
 
