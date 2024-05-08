@@ -63,10 +63,10 @@ function Footer() {
 
             <ul className={style.footer_bootom}>
                 <li>© 2024 – 2024 «Topolna-Lviv»</li>
-                <li class=""><a itemprop="url" href="https://smaki-maki.com/polityka-vykorystannya-cookies/">Політика використання cookies</a></li>
-                <li class=""><a itemprop="url" href="https://smaki-maki.com/dogovir-publichnoyi-oferty/">Договір публічної оферти</a></li>
-                <li class="active"><a itemprop="url" href="https://smaki-maki.com/karta-sajtu/">Карта сайту</a></li>
-                <li class="active"><a itemprop="url" href="https://smaki-maki.com/karta-sajtu/">Розробка сайтів «Topolna-Team»</a></li>
+                <li><a href="https://smaki-maki.com/polityka-vykorystannya-cookies/">Політика використання cookies</a></li>
+                <li><a href="https://smaki-maki.com/dogovir-publichnoyi-oferty/">Договір публічної оферти</a></li>
+                <li><a href="https://smaki-maki.com/karta-sajtu/">Карта сайту</a></li>
+                <li><a href="https://smaki-maki.com/karta-sajtu/">Розробка сайтів «Topolna-Team»</a></li>
             </ul>
         </footer>
     )
