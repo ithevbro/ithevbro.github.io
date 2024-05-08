@@ -112,12 +112,17 @@ svg path {
     height: 26px;
     width: 26px;
     transition: all 0.25s;
+    user-select: none;
 }
 
 .minus_plus button:hover {
     color: white;
     background-color: #3aad49;
     box-shadow: none;
+}
+
+footer a.active {
+    color: #921b1b;
 }
 
 @font-face {

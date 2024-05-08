@@ -21,13 +21,15 @@ function SneksElement({ data }) {
                 <div className={style.product_title}>{data.title}</div>
                 <div className={style.sneks_controllers}>
                     <div className={style.product_price}>{data.price} грн</div>
-                    {id && id.q > 0 ?
-                        <div className="minus_plus">
-                            <button onClick={() => minusElement(id)}>-</button>
-                            <span>{id ? id.q : 0}</span>
-                            <button onClick={() => plusElement(id)}>+</button>
-                        </div> :
-                        <button onClick={() => addToCart(data)} className="prod_buy_btn">КУПИТИ</button>
+                    {
+                        id?.q > 0 ?
+                            <div className="minus_plus">
+                                <button onClick={() => minusElement(id)}>-</button>
+                                <span>{id.q}</span>
+                                <button onClick={() => plusElement(id)}>+</button>
+                            </div>
+                            :
+                            <button onClick={() => addToCart(data)} className="prod_buy_btn">КУПИТИ</button>
                     }
                 </div>
             </div>
