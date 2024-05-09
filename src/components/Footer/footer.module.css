@@ -215,6 +215,10 @@
         padding: 20px 30px;
         margin-top: 10px;
     }
+    .footer_top {
+        margin-top: 40px;
+ 
+    }
 }
 
 @media(max-width:500px) {
@@ -238,5 +242,9 @@
 
     .page_nav {
         padding: 0;
+    }
+    .footer_top {
+        margin-top: 20px;
+ 
     }
 }

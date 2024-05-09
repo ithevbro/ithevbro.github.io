@@ -1,0 +1,48 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.top:hover {
+    cursor: pointer;
+}
+
+.top:hover h3 {
+    color: #921b1b;
+}
+
+.top h3 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.acard {
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    margin-top: -1px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.arrow {
+    font-size: 17px;
+    transition: transform 0.25s;
+}
+
+.content {
+    max-height: 0;
+    transition: all 0.25s;
+    overflow: hidden;
+    padding-top: 0px;
+    font-size: 17px;
+}
+
+.acard.active .content {
+    max-height: 100px;
+    padding-top: 15px;
+}
+
+.acard.active .arrow {
+    transform: rotate(-180deg);
+}

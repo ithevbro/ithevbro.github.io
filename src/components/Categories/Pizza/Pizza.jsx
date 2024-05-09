@@ -4,6 +4,7 @@ import PizzaElement from "./PizzaElement"
 import LoaderMain from "../../Loaders/Loader-main"
 import { useState } from "react"
 import SelectFilter from "../../SelectFilter/SelectFilter"
+import ArticlePizza from "./ArticlePizza"
 
 function Pizza() {
     let { products, loading } = getProds('pizza')
@@ -38,6 +39,8 @@ function Pizza() {
                     ))}
                 </ul>
             }
+
+            <ArticlePizza />
         </section>
     )
 }

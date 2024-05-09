@@ -6,32 +6,45 @@ function PizzaElement({ item, style, sizeFilter }) {
 
     const [pizzaSize, setPizzaSize] = useState(sizeFilter)
     const [bortik, setBortik] = useState(false)
+    const [ind, setInd] = useState(0)
     const cartContext = useContext(BasketContext)
     const { addToCart, plusElement, minusElement } = useBasketActions()
     const id = cartContext.cartData.find(prod => prod._id === item._id)
 
     useEffect(() => {
         setPizzaSize(sizeFilter)
+        indexHandler(sizeFilter)
         setBortik(false)
     }, [sizeFilter])
 
     function currentSize(size) {
         setBortik(false)
         setPizzaSize(size)
+        indexHandler(size)
     }
 
     function toggleBortik() {
         setBortik(!bortik)
     }
 
+    function indexHandler(size) {
+        if (size === 22) {
+            setInd(0)
+        } else if (size === 30) {
+            setInd(1)
+        } else {
+            setInd(2)
+        }
+    }
+
     return (
         <li className={style.pizza_element}>
             <div><img src={item.image} alt="" /></div>
             <div className={style.product_description}>
-                <p className={style.weight}>{item.weight} Г</p>
+                <p className={style.weight}>{item.weight[ind]} Г</p>
                 <p className={style.title}><b>{item.title}</b></p>
                 <div className={style.product_controls}>
-                    <p><b>{item.price} грн</b></p>
+                    <p><b>{bortik ? item.bortyk[ind] + item.price[ind] : item.price[ind]} грн</b></p>
                     {
                         id?.q > 0 ?
                             <div className="minus_plus">
