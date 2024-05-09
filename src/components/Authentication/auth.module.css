@@ -10,6 +10,7 @@
     visibility: visible;
     opacity: 1;
     transition: all 0.25s ease;
+    overflow: auto;
 }
 
 .dialog_wrapper.active_dialog {
@@ -132,15 +133,11 @@
 
 
 .basket_wrapper {
-    background-color: white;
-    padding: 50px 100px;
-    overflow: visible;
-    text-align: center;
     max-width: 880px;
-    border-radius: 10px;
     width: 100%;
+    height: 100%;
     transition: all 0.3s ease-out;
-    position: fixed;
+    position: relative;
     top: 50%;
     left: 50%;
     opacity: 0;

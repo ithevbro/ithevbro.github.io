@@ -1,5 +1,15 @@
 .basket_container {
-    
+    background-color: white;
+    width: 100%;
+    padding: 50px 100px;
+    text-align: center;
+    max-width: 880px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.bs2 {
+    padding: 50px 0;
 }
 
 .basket_title {
@@ -72,6 +82,7 @@
     font-size: 17px;
     font-family: Montserrat;
 }
+
 .bottom_info {
     margin-left: auto;
     margin-right: 25px;
@@ -108,7 +119,7 @@
 }
 
 .border_bottom_basket {
-   margin-top: 30px;
+    margin-top: 30px;
 }
 
 .btn_delete_from_cart {
@@ -147,6 +158,7 @@
     transform: rotate(45deg);
     transition: all .25s ease;
 }
+
 .btn_delete_from_cart:hover::before {
     transform: rotate(135deg);
     transition: all .25s ease;
@@ -209,11 +221,11 @@
 
 
 
-.basket_element_in_list:hover #btn{
+.basket_element_in_list:hover #btn {
     opacity: 1;
 }
 
-.basket_element_in_list:hover .btn_delete_from_cart{
+.basket_element_in_list:hover .btn_delete_from_cart {
     opacity: 1;
 }
 
