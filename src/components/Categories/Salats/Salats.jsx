@@ -3,10 +3,10 @@ import SalatElement from './SalatElement'
 import SelectFilter from '../../SelectFilter/SelectFilter'
 import LoaderMain from '../../Loaders/Loader-main'
 import { getProds } from '../../../service/services'
+import ArticleSalats from './Article'
 
 function Salats() {
     let { products, loading } = getProds('salat')
-    
 
     return (
         <section className={style.section_wrapper}>
@@ -22,6 +22,7 @@ function Salats() {
                     ))}
                 </ul>
             }
+            <ArticleSalats />
         </section>
     )
 }

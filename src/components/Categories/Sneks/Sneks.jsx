@@ -3,6 +3,7 @@ import style from './sneks.module.css'
 import SneksElement from './SneksElement'
 import { getProds } from '../../../service/services'
 import LoaderMain from '../../Loaders/Loader-main'
+import ArticleSneks from './Article'
 
 function Sneks() {
     let { products, loading } = getProds('snek')
@@ -26,6 +27,8 @@ function Sneks() {
                         </div>
                 }
             </div>
+
+            <ArticleSneks />
         </section>
     )
 }

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     user-select: none;
+    position: relative;
 }
 
 .top:hover {
@@ -17,17 +18,25 @@
     font-weight: 700;
 }
 
+.top::before {
+    content: '';
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(135deg) translateY(0);
+    transition: .25s;
+}
+
 .acard {
     border-top: 1px solid #f2f2f2;
     border-bottom: 1px solid #f2f2f2;
     margin-top: -1px;
     padding: 20px 0;
     width: 100%;
-}
-
-.arrow {
-    font-size: 17px;
-    transition: transform 0.25s;
 }
 
 .content {
@@ -43,6 +52,6 @@
     padding-top: 15px;
 }
 
-.acard.active .arrow {
-    transform: rotate(-180deg);
+.acard.active .top::before {
+    transform: rotate(-45deg);
 }

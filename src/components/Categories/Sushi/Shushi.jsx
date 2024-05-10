@@ -4,12 +4,16 @@ import { useState } from 'react'
 import SushiElement from './SushiElement'
 import { getProds } from '../../../service/services'
 import LoaderMain from '../../Loaders/Loader-main'
+import ArticleSushi1 from './Article1'
+import ArticleSushi2 from './Article2'
+import { useLocation } from 'react-router-dom'
 
 function Sushi() {
 
     let { products, loading } = getProds('sushi')
     const [prodFilter, setProdFilter] = useState('Всі')
     const sushiFilters = ['Всі', 'Суперціна', 'Суші-бургери', 'Сети', 'ТОП продажів', 'Філадельфії', 'Вершкові', 'Запечені', 'Теплі', 'Дракони']
+    let url = useLocation().pathname
 
     return (
         <section className={style.prod_main_container}>
@@ -43,6 +47,8 @@ function Sushi() {
                         </ul>
                 }
             </div>
+
+            {url === '/' ? <ArticleSushi1 /> : <ArticleSushi2 />}
         </section>
     )
 }
