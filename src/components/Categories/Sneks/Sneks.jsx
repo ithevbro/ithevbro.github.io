@@ -12,19 +12,22 @@ function Sneks() {
         <section>
             <div className={style.sneks_main_container}>
                 <h1>Фрі та снеки</h1>
-                <div className={style.sneks_filter_container}>
-                    <div></div>
-                    <SelectFilter />
-                </div>
+
                 {
                     loading ? <LoaderMain /> :
-                        <div className={style.sneks_products_container}>
-                            {
-                                products.map((item) => {
-                                    return <SneksElement key={item._id} data={item} />
-                                })
-                            }
-                        </div>
+                        <>
+                            <div className={style.sneks_filter_container}>
+                                <div></div>
+                                <SelectFilter />
+                            </div>
+                            <div className={style.sneks_products_container}>
+                                {
+                                    products.map((item) => {
+                                        return <SneksElement key={item._id} data={item} />
+                                    })
+                                }
+                            </div>
+                        </>
                 }
             </div>
 

@@ -9,7 +9,7 @@ function SalatElement({ style, item }) {
 
     return (
         <li className={style.prod_element}>
-            <div><img src={item.image} alt="" /></div>
+            <div className={style.img_wrapper}><img src={item.image} alt="" /></div>
             <div className={style.product_description}>
                 <p className={style.weight}>{item.weight} Г</p>
                 <p className={style.title}><b>{item.title}</b></p>

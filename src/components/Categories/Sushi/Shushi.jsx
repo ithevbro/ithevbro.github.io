@@ -19,32 +19,34 @@ function Sushi() {
         <section className={style.prod_main_container}>
             <div className={style.prod_wrapper}>
                 <h1>Суші у Львові</h1>
-                <h5>Роли</h5>
-                <aside className={style.prod_filter_container}>
-                    <ul className={style.prod_filter_list}>
-                        {
-                            sushiFilters.map((filter, index) =>
-                                <li
-                                    key={index}
-                                    onClick={() => setProdFilter(filter)}
-                                    className={prodFilter === filter ? style.prod_filter_list_active_color : ''}
-                                >
-                                    {filter}
-                                </li>
-                            )
-                        }
-                    </ul>
-                    <SelectFilter />
-                </aside>
                 {
                     loading ? <LoaderMain /> :
-                        <ul className={style.prod_container}>
-                            {
-                                products.map((item) => {
-                                    return <SushiElement key={item._id} data={item} />
-                                })
-                            }
-                        </ul>
+                        <>
+                            <h5>Роли</h5>
+                            <aside className={style.prod_filter_container}>
+                                <ul className={style.prod_filter_list}>
+                                    {
+                                        sushiFilters.map((filter, index) =>
+                                            <li
+                                                key={index}
+                                                onClick={() => setProdFilter(filter)}
+                                                className={prodFilter === filter ? style.prod_filter_list_active_color : ''}
+                                            >
+                                                {filter}
+                                            </li>
+                                        )
+                                    }
+                                </ul>
+                                <SelectFilter />
+                            </aside>
+                            <ul className={style.prod_container}>
+                                {
+                                    products.map((item) => {
+                                        return <SushiElement key={item._id} data={item} />
+                                    })
+                                }
+                            </ul>
+                        </>
                 }
             </div>
 

@@ -48,7 +48,7 @@
 }
 
 .prod_element img:hover {
-    transform: scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .prod_element img {
@@ -93,6 +93,18 @@
     user-select: none;
     cursor: pointer;
     margin-bottom: 30px;
+}
+
+.img_wrapper {
+    position: relative;
+    padding-top: 100%;
+}
+
+.img_wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 

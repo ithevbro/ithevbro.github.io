@@ -1,8 +1,12 @@
 import style from './footer.module.css'
 import { NavLink } from 'react-router-dom'
 import BasicInput from '../Inputs/BasicInput'
+import { GlobalOverlayState } from '../../global-state/GlobalOverlay'
+import { useContext } from 'react'
 
 function Footer() {
+
+    const setGlobalOverlayData = useContext(GlobalOverlayState).setGlobalOverlayData
 
     return (
         <footer className={style.footer_wrapper}>
@@ -32,7 +36,12 @@ function Footer() {
                                 <li><NavLink to={'/delivery'} >Доставка</NavLink></li>
                                 <li><a href="https://smaki-maki.biz/" target='_blank'>Франчайзинг</a></li>
                                 <li><NavLink to={'/vacancies'}>Вакансії</NavLink></li>
-                                <li><a>Залишити відгук</a></li>
+                                <li>
+                                    <a onClick={(e) => {
+                                        e.preventDefault()
+                                        setGlobalOverlayData({ type: 'res' })
+                                    }}>Залишити відгук</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

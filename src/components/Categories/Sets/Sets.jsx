@@ -12,23 +12,26 @@ function Sets() {
         <section>
             <div className={style.prod_wrapper}>
                 <h1>Доставка суші сетів у Львові</h1>
-                <ul className={style.prod_filter_container}>
-                    <div></div>
-                    <SelectFilter />
-                </ul>
+
                 {
                     loading ? <LoaderMain /> :
-                        <ul className={style.prod_container}>
-                            {
-                                products.map((item) => {
-                                    return <SetsElement key={item._id} data={item} />
-                                })
-                            }
-                        </ul>
+                        <>
+                            <ul className={style.prod_filter_container}>
+                                <div></div>
+                                <SelectFilter />
+                            </ul>
+                            <ul className={style.prod_container}>
+                                {
+                                    products.map((item) => {
+                                        return <SetsElement key={item._id} data={item} />
+                                    })
+                                }
+                            </ul>
+                        </>
                 }
 
             </div>
-            
+
             <ArticleSets />
         </section>
     )

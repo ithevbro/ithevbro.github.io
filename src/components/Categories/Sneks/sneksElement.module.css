@@ -11,11 +11,7 @@
 }
 
 .sneks_product img:hover {
-    transform: scale(1.1);
-}
-
-.sneks_over {
-    overflow: hidden;
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .sneks_bottom_info {
@@ -50,6 +46,19 @@
 .product_price {
     font-weight: 700;
     font-size: 23px;
+}
+
+.img_wrapper {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+}
+
+.img_wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 @media(max-width:768px) {

@@ -15,7 +15,7 @@ function SneksElement({ data }) {
 
     return (
         <div className={style.sneks_product}>
-            <div className={style.sneks_over}><img src={data.image} alt="" /></div>
+            <div className={style.img_wrapper}><img src={data.image} alt="" /></div>
             <div className={style.sneks_bottom_info}>
                 <div className={style.product_weight}>{data.weight}г</div>
                 <div className={style.product_title}>{data.title}</div>
