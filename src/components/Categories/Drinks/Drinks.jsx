@@ -12,17 +12,18 @@ function Drinks() {
         <section className={style.section_wrapper}>
             <div className={style.prods_wrapper}>
                 <h1>Доставка напоїв у Львові</h1>
-                <h3>Напої</h3>
-                <aside className={style.filters_wrapper}>
-                    <SelectFilter />
-                </aside>
-
                 {loading ? <LoaderMain /> :
-                    <ul className={style.prod_list}>
-                        {products.map(item => (
-                            <DrinkElement key={item._id} item={item} style={style} />
-                        ))}
-                    </ul>
+                    <>
+                        <h3>Напої</h3>
+                        <aside className={style.filters_wrapper}>
+                            <SelectFilter />
+                        </aside>
+                        <ul className={style.prod_list}>
+                            {products.map(item => (
+                                <DrinkElement key={item._id} item={item} style={style} />
+                            ))}
+                        </ul>
+                    </>
                 }
             </div>
 

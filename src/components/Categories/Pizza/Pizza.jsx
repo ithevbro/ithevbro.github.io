@@ -16,28 +16,31 @@ function Pizza() {
     return (
         <section className={style.section_wrapper}>
             <h1>Піца у Львові</h1>
-            <aside className={style.filters_wrapper}>
-
-                <ul className={style.filter}>
-                    {prodFilters.map((filter, index) =>
-                        <li className={prodFilter === filter ? style.activefilter : ''}
-                            onClick={() => setProdFilter(filter)} key={index}>{filter}</li>)}
-                </ul>
-
-                <ul className={style.filter_size}>
-                    {sizeFilters.map((filter, index) =>
-                        <li key={index} onClick={() => setSizeFilter(filter)}
-                            className={sizeFilter === filter ? style.activefilter : ''}>{filter} см</li>)}
-                </ul>
-                <SelectFilter />
-            </aside>
 
             {loading ? <LoaderMain /> :
-                <ul className={style.prod_list}>
-                    {products.map(item => (
-                        <PizzaElement key={item._id} item={item} style={style} sizeFilter={sizeFilter} />
-                    ))}
-                </ul>
+                <>
+                    <aside className={style.filters_wrapper}>
+                        <div className={style.filters}>
+                            <ul className={style.filter}>
+                                {prodFilters.map((filter, index) =>
+                                    <li className={prodFilter === filter ? style.activefilter : ''}
+                                        onClick={() => setProdFilter(filter)} key={index}>{filter}</li>)}
+                            </ul>
+
+                            <ul className={style.filter_size}>
+                                {sizeFilters.map((filter, index) =>
+                                    <li key={index} onClick={() => setSizeFilter(filter)}
+                                        className={sizeFilter === filter ? style.activefilter : ''}>{filter} см</li>)}
+                            </ul>
+                        </div>
+                        <SelectFilter />
+                    </aside>
+                    <ul className={style.prod_list}>
+                        {products.map(item => (
+                            <PizzaElement key={item._id} item={item} style={style} sizeFilter={sizeFilter} />
+                        ))}
+                    </ul>
+                </>
             }
 
             <ArticlePizza />

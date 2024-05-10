@@ -14,7 +14,7 @@ function SetsElement({ data }) {
 
     return (
         <li className={style.sets_product}>
-            <div className={style.sets_over}><img src={data.image} alt="" /></div>
+            <div className={style.img_wrapper}><img src={data.image} alt="" /></div>
             <div className={style.sets_bottom_info}>
                 <div className={style.product_weight}>{data.weight}г</div>
                 <div className={style.product_title}>{data.title}</div>

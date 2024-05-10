@@ -39,7 +39,7 @@ function PizzaElement({ item, style, sizeFilter }) {
 
     return (
         <li className={style.pizza_element}>
-            <div><img src={item.image} alt="" /></div>
+            <div className={style.img_wrapper}><img src={item.image} alt="" /></div>
             <div className={style.product_description}>
                 <p className={style.weight}>{item.weight[ind]} Г</p>
                 <p className={style.title}><b>{item.title}</b></p>

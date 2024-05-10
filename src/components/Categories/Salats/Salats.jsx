@@ -11,16 +11,19 @@ function Salats() {
     return (
         <section className={style.section_wrapper}>
             <h1>Доставка боулів у Львові</h1>
-            <aside className={style.filters_wrapper}>
-                <SelectFilter />
-            </aside>
+
 
             {loading ? <LoaderMain /> :
-                <ul className={style.prod_list}>
-                    {products.map(item => (
-                        <SalatElement key={item._id} item={item} style={style} />
-                    ))}
-                </ul>
+                <>
+                    <aside className={style.filters_wrapper}>
+                        <SelectFilter />
+                    </aside>
+                    <ul className={style.prod_list}>
+                        {products.map(item => (
+                            <SalatElement key={item._id} item={item} style={style} />
+                        ))}
+                    </ul>
+                </>
             }
             <ArticleSalats />
         </section>

@@ -17,7 +17,7 @@ function SushiElement({ data }) {
 
     return (
         <li className={style.product}>
-            <div className={style.sushi_over}><img src={data.image} alt="" /></div>
+            <div className={style.img_wrapper}><img src={data.image} alt="" /></div>
             <div className={style.sushi_bottom_info}>
                 <div className={style.product_weight}>{data.weight}г</div>
                 <div className={style.product_title}>{data.title}</div>
