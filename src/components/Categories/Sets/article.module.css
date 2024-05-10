@@ -1,16 +1,19 @@
 .text {
     padding-top: 60px;
     font-size: 17px;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    margin-top: 30px;
 }
 
-.text h2 {
+.text h4 {
     margin-top: 50px;
     font-size: 25px;
     line-height: 1.2;
     font-weight: 400;
 }
 
-.text h3 {
+.text h2 {
     font-size: 41px;
     line-height: 1.2;
     font-weight: 400;
@@ -55,21 +58,8 @@
     margin-bottom: 25px;
 }
 
-.questions h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.questions {
-    max-width: 920px;
-    margin: 0 auto;
-}
-
-.acardions {
-    margin-top: 30px;
-    padding: 60px 0;
-    border-top: 1px solid #f2f2f2;
-    border-bottom: 1px solid #f2f2f2;
+.text>div>div>* {
+    margin-bottom: 25px;
 }
 
 @media(max-width:992px) {
@@ -77,19 +67,20 @@
         margin-bottom: 20px;
     }
 
-    .text h3 {
-        margin-top: 30px;
+    .text>div>div>* {
+        margin-bottom: 20px;
     }
 
     .text h2 {
         margin-top: 30px;
     }
+
+    .text h4 {
+        margin-top: 30px;
+    }
+
     .text {
         padding-top: 40px;
     }
-    .acardions {
-        margin-top: 20px;
-        padding: 30px 0;
-    }
-    
+
 }

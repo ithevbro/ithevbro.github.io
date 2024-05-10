@@ -3,6 +3,7 @@ import DrinkElement from './DrinkElement'
 import SelectFilter from '../../SelectFilter/SelectFilter'
 import LoaderMain from '../../Loaders/Loader-main'
 import { getProds } from '../../../service/services'
+import ArticleDrinks from './Article'
 
 function Drinks() {
     let { products, loading } = getProds('drinks')
@@ -24,6 +25,8 @@ function Drinks() {
                     </ul>
                 }
             </div>
+
+            <ArticleDrinks />
         </section>
     )
 }

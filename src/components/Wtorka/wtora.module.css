@@ -1,0 +1,44 @@
+.content {
+    max-height: 1500px;
+    overflow: hidden;
+    transition: max-height 1s;
+}
+
+.content.hide {
+    max-height: 0px;
+    transition: max-height 0.3s;
+}
+
+.toggle {
+    position: relative;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    padding-right: 35px;
+    transition: .25s;
+    border: 0;
+    outline: 0;
+    background-color: unset;
+}
+
+.toggle:hover {
+    color: #921b1b;
+}
+
+.toggle::before {
+    content: '';
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    border: solid currentColor;
+    border-width: 0 0 2px 2px;
+    transform: rotate(-225deg);
+    transition: transform .25s;
+}
+
+.toggle.active::before {
+    transform: rotate(-45deg);
+    transition: transform .25s;
+}

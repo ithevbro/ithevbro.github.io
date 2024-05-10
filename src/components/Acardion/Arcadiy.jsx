@@ -14,7 +14,6 @@ function Arcadiy({ qa }) {
             let li = <li key={item} className={style.acard + (show === item ? ' ' + style.active : '')}>
                 <div onClick={() => togleAcard(item)} className={style.top}>
                     <h3>{item}</h3>
-                    <div className={style.arrow}>&#11167;</div>
                 </div>
                 <p className={style.content}>{qa[item]}</p>
             </li>

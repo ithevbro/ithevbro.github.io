@@ -3,6 +3,7 @@ import style from './sets.module.css'
 import SetsElement from './SetsElement'
 import { getProds } from '../../../service/services'
 import LoaderMain from '../../Loaders/Loader-main'
+import ArticleSets from './Article'
 
 function Sets() {
     let { products, loading } = getProds('sets')
@@ -27,6 +28,8 @@ function Sets() {
                 }
 
             </div>
+            
+            <ArticleSets />
         </section>
     )
 }
