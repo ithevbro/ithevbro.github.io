@@ -1,16 +1,44 @@
 import style from './basket.module.css'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { GlobalOverlayState } from '../../global-state/GlobalOverlay'
 import { BasketContext } from './GlobalStateBasket'
 import useBasketActions from './BasketActions'
 import { NavLink } from 'react-router-dom'
+import FreeSouses from '../FreeSouses/FreeSouses'
+import { SouseContext } from '../FreeSouses/GlobalStateSouse'
 
 function Basket() {
 
     const setGlobalOverlayData = useContext(GlobalOverlayState).setGlobalOverlayData
     const dataCart = useContext(BasketContext)
-
+    const souseData = useContext(SouseContext)
     const { plusElement, minusElement, removeFromCart } = useBasketActions()
+
+    const [isShushi, setIsSushi] = useState([])
+
+    useEffect(() => {
+        if (dataCart.cartData[dataCart.cartData.length - 1]?.productType === 'sushi' && !isShushi.includes(dataCart.cartData[dataCart.cartData.length - 1]?._id)) {
+            setIsSushi(p => [...p, dataCart.cartData[dataCart.cartData.length - 1]?._id])
+        }
+    }, [dataCart.cartData, isShushi])
+
+    useEffect(() => {
+
+        if (isShushi.length > 0) {
+            souseData.setSouseData({ type: 'souse', elem: { ...souseData.souseData, isVisible: true } })
+        } else {
+            souseData.setSouseData({ type: 'souse', elem: { ...souseData.souseData, isVisible: false, usual: 0, study: 0, soy: 0 } })
+        }
+
+        // if (isShushi.length > 0) {
+        //     souseData.setSouseData({ type: 'souse', elem: souseData.souseData || { ...souseData.souseData, isVisible: true } })
+        // } else {
+        //     souseData.setSouseData({ type: 'souse', elem: souseData.souseData || { ...souseData.souseData, isVisible: true, usual: 0, study: 0, soy: 0 } })
+        // }
+
+
+    }, [isShushi])
+
 
     function sum() {
         let sum = 0
@@ -21,6 +49,18 @@ function Basket() {
         return sum
     }
 
+
+    // useEffect(() => {
+    //     if (dataCart.cartData[dataCart.cartData.length - 1]?.productType === 'sushi' && !isShushi.includes(dataCart.cartData[dataCart.cartData.length - 1]?._id)) {
+    //         setIsSuhi(p => [...p, dataCart.cartData[dataCart.cartData.length - 1]?._id])
+    //     }
+    //     // isShushi.length != undefined && isShushi.length > 0 ? localStorage.setItem('souse', JSON.stringify(true)) : localStorage.setItem('souse', JSON.stringify(false))
+    //     isShushi.length != undefined && isShushi.length > 0 ? souseData.setSouseData({type: 'souse', elem: true}) : souseData.setSouseData({type: 'souse', elem: false})
+    // }, [dataCart.cartData, isShushi])
+
+    function d(id) {
+        setIsSushi(isShushi.filter(i => i !== id))
+    }
 
     return (
         <div className={style.bs2}>
@@ -56,10 +96,12 @@ function Basket() {
                                 <div className={style.btn_delete_from_cart} onClick={(e) => {
                                     e.preventDefault()
                                     removeFromCart(item)
+                                    d(item._id)
                                 }}></div>
                             </div>
                         )
                     })}
+                    {isShushi.length > 0 && <FreeSouses />}
                     <hr className={style.border_bottom_basket} />
                     <div className={style.basket_summary}>
                         <div className={style.basket_payment}>

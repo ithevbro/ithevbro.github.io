@@ -6,6 +6,7 @@ import { GlobalOverlayState, overlayReducer } from "../global-state/GlobalOverla
 import { useReducer } from "react";
 import { Outlet } from "react-router-dom";
 import { BasketContext, reducerBasket } from '../components/Cart/GlobalStateBasket'
+import { SouseContext, reducerSouse } from "./FreeSouses/GlobalStateSouse";
 
 
 function Layout() {
@@ -13,16 +14,19 @@ function Layout() {
 
     const [globalOverlayData, setGlobalOverlayData] = useReducer(overlayReducer, { main: false })
     const [cartData, setCartData] = useReducer(reducerBasket, JSON.parse(products) || [])
+    const [souseData, setSouseData] = useReducer(reducerSouse, { isVisible: false, usual: 0, study: 0, soy: 0 })
 
     return (
         <BasketContext.Provider value={{ cartData, setCartData }}>
-            <GlobalOverlayState.Provider value={{ globalOverlayData, setGlobalOverlayData, }}>
-                <Header />
-                <Cart />
-                <Outlet />
-                <Auth />
-                <Footer />
-            </GlobalOverlayState.Provider>
+            <SouseContext.Provider value={{ souseData, setSouseData }}>
+                <GlobalOverlayState.Provider value={{ globalOverlayData, setGlobalOverlayData, }}>
+                    <Header />
+                    <Cart />
+                    <Outlet />
+                    <Auth />
+                    <Footer />
+                </GlobalOverlayState.Provider>
+            </SouseContext.Provider>
         </BasketContext.Provider>
     )
 }
