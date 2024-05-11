@@ -2,10 +2,12 @@ import { useContext } from 'react'
 import { GlobalOverlayState } from '../../global-state/GlobalOverlay'
 import style from './cart.module.css'
 import { BasketContext } from './GlobalStateBasket'
+import { SouseContext } from '../FreeSouses/GlobalStateSouse'
 
 function Cart() {
     const setGlobalOverlayData = useContext(GlobalOverlayState).setGlobalOverlayData
     const dataCart = useContext(BasketContext)
+    const souseData = useContext(SouseContext)
 
     function sum() {
         let sum = 0
@@ -13,6 +15,10 @@ function Cart() {
         for (let i = 0; i < dataCart.cartData.length; i++) {
             sum += dataCart.cartData[i].price * dataCart.cartData[i].q
         }
+        sum += souseData.souseData.totalSet
+        sum += souseData.souseData.totalSoy
+        sum += 45
+        if(sum === 45) return 0
         return sum
     }
 

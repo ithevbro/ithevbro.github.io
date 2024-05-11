@@ -166,7 +166,7 @@
 
 .basket_payment {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 20px 0px;
     font-weight: 700;
     font-size: 17px;
@@ -192,6 +192,7 @@
 
 .basket_summary {
     margin: 30px 30px 0px 30px;
+    padding: 0px 150px;
 }
 
 .close_busket_btn {
@@ -219,6 +220,19 @@
     z-index: 1;
 }
 
+/* .cont_payment_basket {
+    padding: 0px 150px;
+} */
+.sum_info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2px;
+    font-size: 15px;
+}
+
+.color_digit {
+    color: #921b1b;
+}
 
 
 .basket_element_in_list:hover #btn {
