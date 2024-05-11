@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 import style from './freeSouses.module.css'
 import { SouseContext } from './GlobalStateSouse';
 
@@ -7,21 +7,70 @@ function FreeSouses() {
 
     const souseData = useContext(SouseContext)
 
-    function plus(item) {
+    // function plus(item) {
+    //     souseData.setSouseData({
+    //         type: 'edit',
+    //         elem: { ...souseData.souseData, [item]: souseData.souseData[item] + 1 }
+    //     })
+    // }
 
-        souseData.setSouseData({
-            type: 'edit',
-            elem: { ...souseData.souseData, [item]: souseData.souseData[item] + 1 }
-        })
+    // function minus(item) {
+    //     if (souseData.souseData[item] === 0) return
+    //     souseData.setSouseData({
+    //         type: 'edit',
+    //         elem: { ...souseData.souseData, [item]: souseData.souseData[item] - 1 }
+    //     })
+    // }
+
+    // function totalSum() {
+    //     if (souseData.souseData['usual'] + souseData.souseData['study'] >= 4)
+    //         souseData.setSouseData({
+    //             type: 'edit',
+    //             elem: { ...souseData.souseData, total: souseData.souseData.total + 15 }
+    //         })
+    // }
+
+
+    function plus(item) {
+        if (item === 'soy') {
+            souseData.setSouseData({
+                type: 'edit',
+                elem: { ...souseData.souseData, [item]: souseData.souseData[item] + 1, totalSoy: souseData.souseData.totalSoy + 12 }
+            })
+        } else if (souseData.souseData['usual'] + souseData.souseData['study'] >= 4 && item != 'soy') {
+            souseData.setSouseData({
+                type: 'edit',
+                elem: { ...souseData.souseData, [item]: souseData.souseData[item] + 1, totalSet: souseData.souseData.totalSet + 15 }
+            })
+        } else {
+            souseData.setSouseData({
+                type: 'edit',
+                elem: { ...souseData.souseData, [item]: souseData.souseData[item] + 1 }
+            })
+        }
+
     }
 
     function minus(item) {
         if (souseData.souseData[item] === 0) return
-        souseData.setSouseData({
-            type: 'edit',
-            elem: { ...souseData.souseData, [item]: souseData.souseData[item] - 1 }
-        })
+        if (item === 'soy') {
+            souseData.setSouseData({
+                type: 'edit',
+                elem: { ...souseData.souseData, [item]: souseData.souseData[item] - 1, totalSoy: souseData.souseData.totalSoy - 12 }
+            })
+        } else if (souseData.souseData['usual'] + souseData.souseData['study'] > 4 && item != 'soy') {
+            souseData.setSouseData({
+                type: 'edit',
+                elem: { ...souseData.souseData, [item]: souseData.souseData[item] - 1, totalSet: souseData.souseData.totalSet - 15 }
+            })
+        } else {
+            souseData.setSouseData({
+                type: 'edit',
+                elem: { ...souseData.souseData, [item]: souseData.souseData[item] - 1 }
+            })
+        }
     }
+
 
     return (
         <div >
@@ -62,7 +111,7 @@ function FreeSouses() {
                             -
                         </button>
                     </div>
-                    <div className={style.prive_quant}><span> грн</span></div>
+                    <div className={style.prive_quant}>{souseData.souseData.totalSet <= 0 ? 'Безкоштовно' : souseData.souseData.totalSet + 'грн'}</div>
                 </div>
             </div>
             <div className={style.basket_element_in_list}>
@@ -86,7 +135,7 @@ function FreeSouses() {
                             -
                         </button>
                     </div>
-                    <div className={style.prive_quant}><span> грн</span></div>
+                    <div className={style.prive_quant}>{souseData.souseData.totalSoy <= 0 ? 'Безкоштовно' : souseData.souseData.totalSoy + 'грн'}</div>
                 </div>
             </div>
         </div>
