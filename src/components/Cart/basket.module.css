@@ -66,6 +66,7 @@
     font-size: 13px;
     color: #98989d;
     margin-bottom: 5px;
+    margin-top: 5px;
     font-family: Montserrat;
 }
 
@@ -269,6 +270,13 @@
     }
 }
 
+@media(max-width: 730px) {
+    .basket_element_info {
+        max-width: 190px;
+        min-width: 150px;
+    }
+}
+
 
 @media(max-width: 576px) {
     .basket_container {
@@ -323,5 +331,8 @@
 @media(max-width: 390px){
     .bottom_info  {
         margin-right: 15px;
+    }
+    .basket_element_info {
+        min-width: 120px;
     }
 }
