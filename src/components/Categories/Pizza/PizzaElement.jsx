@@ -10,7 +10,7 @@ function PizzaElement({ item, style, sizeFilter }) {
     const cartContext = useContext(BasketContext)
     const { addToCart, plusElement, minusElement } = useBasketActions()
     const id = cartContext.cartData.find(prod => prod._id === item._id)
-    const [updPizza, setUpdPizza] = useState({ ...item, currentPrice: item.price, currentWeight: item.weight })
+    let updPizza = { ...item, price: item.price[ind] + (bortik ? item.bortyk[ind] : 0), weight: item.weight[ind] }
 
     useEffect(() => {
         setPizzaSize(sizeFilter)
@@ -31,13 +31,10 @@ function PizzaElement({ item, style, sizeFilter }) {
     function indexHandler(size) {
         if (size === 22) {
             setInd(0)
-            setUpdPizza({ ...updPizza, price: updPizza.currentPrice[0], weight: updPizza.currentWeight[0] })
         } else if (size === 30) {
             setInd(1)
-            setUpdPizza({ ...updPizza, price: updPizza.currentPrice[1], weight: updPizza.currentWeight[1] })
         } else {
             setInd(2)
-            setUpdPizza({ ...updPizza, price: updPizza.currentPrice[2], weight: updPizza.currentWeight[2] })
         }
     }
 
