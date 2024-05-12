@@ -11,10 +11,10 @@ import { SouseContext, reducerSouse } from "./FreeSouses/GlobalStateSouse";
 
 function Layout() {
     let products = localStorage.getItem('prod')
-
+    let souse = localStorage.getItem('souseInStorage')
     const [globalOverlayData, setGlobalOverlayData] = useReducer(overlayReducer, { main: false })
     const [cartData, setCartData] = useReducer(reducerBasket, JSON.parse(products) || [])
-    const [souseData, setSouseData] = useReducer(reducerSouse, { isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 })
+    const [souseData, setSouseData] = useReducer(reducerSouse, JSON.parse(souse) || { isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 })
 
     return (
         <BasketContext.Provider value={{ cartData, setCartData }}>

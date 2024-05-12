@@ -6,31 +6,8 @@ import { SouseContext } from './GlobalStateSouse';
 function FreeSouses() {
 
     const souseData = useContext(SouseContext)
-
-    // function plus(item) {
-    //     souseData.setSouseData({
-    //         type: 'edit',
-    //         elem: { ...souseData.souseData, [item]: souseData.souseData[item] + 1 }
-    //     })
-    // }
-
-    // function minus(item) {
-    //     if (souseData.souseData[item] === 0) return
-    //     souseData.setSouseData({
-    //         type: 'edit',
-    //         elem: { ...souseData.souseData, [item]: souseData.souseData[item] - 1 }
-    //     })
-    // }
-
-    // function totalSum() {
-    //     if (souseData.souseData['usual'] + souseData.souseData['study'] >= 4)
-    //         souseData.setSouseData({
-    //             type: 'edit',
-    //             elem: { ...souseData.souseData, total: souseData.souseData.total + 15 }
-    //         })
-    // }
-
-
+    localStorage.setItem('souseInStorage', JSON.stringify(souseData.souseData))
+    
     function plus(item) {
         if (item === 'soy') {
             souseData.setSouseData({
@@ -82,36 +59,36 @@ function FreeSouses() {
                 </div>
                 <div className={style.bottom_info}>
                     <div className={style.btn_cont}>
-                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
-                            e.preventDefault()
-                            plus('usual')
-                        }}>
-                            +
-                        </button>
-                        <span className={style.item_quantity}>{souseData.souseData.usual}</span>
                         <button id={style.btn} onClick={(e) => {
                             e.preventDefault()
                             minus('usual')
                         }}>
                             -
                         </button>
-                    </div>
-                    <div className={style.btn_cont}>
+                        <span className={style.item_quantity}>{souseData.souseData.usual}</span>
                         <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
                             e.preventDefault()
-                            plus('study')
+                            plus('usual')
                         }}>
                             +
                         </button>
-                        <span className={style.item_quantity}>{souseData.souseData.study}</span>
+                    </div>
+                    <div className={style.btn_cont}>
                         <button id={style.btn} onClick={(e) => {
                             e.preventDefault()
                             minus('study')
                         }}>
                             -
                         </button>
+                        <span className={style.item_quantity}>{souseData.souseData.study}</span>
+                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
+                            e.preventDefault()
+                            plus('study')
+                        }}>
+                            +
+                        </button>
                     </div>
-                    <div className={style.prive_quant}>{souseData.souseData.totalSet <= 0 ? 'Безкоштовно' : souseData.souseData.totalSet + 'грн'}</div>
+                    <div className={style.prive_quant}>{souseData.souseData.totalSet <= 0 ? 'Безкоштовно' : souseData.souseData.totalSet + ' грн'}</div>
                 </div>
             </div>
             <div className={style.basket_element_in_list}>
@@ -121,21 +98,21 @@ function FreeSouses() {
                 </div>
                 <div className={style.bottom_info}>
                     <div className={style.btn_cont}>
-                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
-                            e.preventDefault()
-                            plus('soy')
-                        }}>
-                            +
-                        </button>
-                        <span className={style.item_quantity}>{souseData.souseData.soy}</span>
                         <button id={style.btn} onClick={(e) => {
                             e.preventDefault()
                             minus('soy')
                         }}>
                             -
                         </button>
+                        <span className={style.item_quantity}>{souseData.souseData.soy}</span>
+                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
+                            e.preventDefault()
+                            plus('soy')
+                        }}>
+                            +
+                        </button>
                     </div>
-                    <div className={style.prive_quant}>{souseData.souseData.totalSoy <= 0 ? 'Безкоштовно' : souseData.souseData.totalSoy + 'грн'}</div>
+                    <div className={style.prive_quant}>{souseData.souseData.totalSoy <= 0 ? 'Безкоштовно' : souseData.souseData.totalSoy + ' грн'}</div>
                 </div>
             </div>
         </div>

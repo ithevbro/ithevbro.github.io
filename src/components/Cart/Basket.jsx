@@ -15,7 +15,7 @@ function Basket() {
     const { plusElement, minusElement, removeFromCart } = useBasketActions()
 
     const [isShushi, setIsSushi] = useState([])
-
+    let souse = localStorage.getItem('souseInStorage')
     useEffect(() => {
         if (dataCart.cartData[dataCart.cartData.length - 1]?.productType === 'sushi' && !isShushi.includes(dataCart.cartData[dataCart.cartData.length - 1]?._id)) {
             setIsSushi(p => [...p, dataCart.cartData[dataCart.cartData.length - 1]?._id])
@@ -23,22 +23,16 @@ function Basket() {
     }, [dataCart.cartData, isShushi])
 
     useEffect(() => {
-
         if (isShushi.length > 0) {
-            souseData.setSouseData({ type: 'souse', elem: { ...souseData.souseData, isVisible: true } })
+            souseData.setSouseData({ type: 'souse', elem: JSON.parse(souse) } || { type: 'souse', elem: { ...souseData.souseData, isVisible: true } })
         } else {
             souseData.setSouseData({ type: 'souse', elem: { ...souseData.souseData, isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 } })
+            setTimeout(() => {
+                localStorage.setItem('souseInStorage', JSON.stringify({ isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 }))
+            }, 1000)
         }
 
-        // if (isShushi.length > 0) {
-        //     souseData.setSouseData({ type: 'souse', elem: souseData.souseData || { ...souseData.souseData, isVisible: true } })
-        // } else {
-        //     souseData.setSouseData({ type: 'souse', elem: souseData.souseData || { ...souseData.souseData, isVisible: true, usual: 0, study: 0, soy: 0 } })
-        // }
-
-
     }, [isShushi])
-
 
     function sum() {
         let sum = 0
@@ -73,18 +67,18 @@ function Basket() {
                                 </div>
                                 <div className={style.bottom_info}>
                                     <div className={style.btn_cont}>
-                                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
-                                            e.preventDefault()
-                                            plusElement(item)
-                                        }}>
-                                            +
-                                        </button>
-                                        <span className={style.item_quantity}>{item.q}</span>
                                         <button id={style.btn} onClick={(e) => {
                                             e.preventDefault()
                                             minusElement(item)
                                         }}>
                                             -
+                                        </button>
+                                        <span className={style.item_quantity}>{item.q}</span>
+                                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
+                                            e.preventDefault()
+                                            plusElement(item)
+                                        }}>
+                                            +
                                         </button>
                                     </div>
                                     <div className={style.prive_quant}>{item.price * item.q}<span> грн</span></div>
