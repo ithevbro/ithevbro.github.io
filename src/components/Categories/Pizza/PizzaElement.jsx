@@ -9,14 +9,17 @@ function PizzaElement({ item, style, sizeFilter }) {
     const [ind, setInd] = useState(0)
     const cartContext = useContext(BasketContext)
     const { addToCart, plusElement, minusElement } = useBasketActions()
-    const id = cartContext.cartData.find(prod => prod._id === item._id)
-    let updPizza = { ...item, price: item.price[ind] + (bortik ? item.bortyk[ind] : 0), weight: item.weight[ind] }
+    let idiwka = item._id + ind + (bortik ? 'bortik' : '')
+    const id = cartContext.cartData.find(prod => prod._id === idiwka)
+    let updPizza = { ...item, price: item.price[ind] + (bortik ? item.bortyk[ind] : 0), weight: item.weight[ind], _id: idiwka }
 
     useEffect(() => {
         setPizzaSize(sizeFilter)
         indexHandler(sizeFilter)
         setBortik(false)
     }, [sizeFilter])
+
+    console.log(cartContext.cartData);
 
     function currentSize(size) {
         setBortik(false)
@@ -48,7 +51,7 @@ function PizzaElement({ item, style, sizeFilter }) {
                     <p><b>{bortik ? item.bortyk[ind] + item.price[ind] : item.price[ind]} грн</b></p>
                     {
                         id?.q > 0 ?
-                            <div className="minus_plus">
+                            < div className="minus_plus">
                                 <button onClick={() => minusElement(id)}>-</button>
                                 <span>{id.q}</span>
                                 <button onClick={() => plusElement(id)}>+</button>
