@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import useBasketActions from "../../Cart/BasketActions"
 import { BasketContext } from "../../Cart/GlobalStateBasket"
+import { Link } from "react-router-dom"
 
 function PizzaElement({ item, style, sizeFilter }) {
 
@@ -18,8 +19,6 @@ function PizzaElement({ item, style, sizeFilter }) {
         indexHandler(sizeFilter)
         setBortik(false)
     }, [sizeFilter])
-
-    console.log(cartContext.cartData);
 
     function currentSize(size) {
         setBortik(false)
@@ -46,7 +45,7 @@ function PizzaElement({ item, style, sizeFilter }) {
             <div className={style.img_wrapper}><img src={item.image} alt="" /></div>
             <div className={style.product_description}>
                 <p className={style.weight}>{item.weight[ind]} Г</p>
-                <p className={style.title}><b>{item.title}</b></p>
+                <p className={style.title}><b><Link to={'/pizza/' + item._id}>{item.title}</Link></b></p>
                 <div className={style.product_controls}>
                     <p><b>{bortik ? item.bortyk[ind] + item.price[ind] : item.price[ind]} грн</b></p>
                     {
