@@ -12,6 +12,7 @@ import Sneks from "./components/Categories/Sneks/Sneks";
 import Salats from "./components/Categories/Salats/Salats";
 import Drinks from "./components/Categories/Drinks/Drinks";
 import Order from "./pages/Order/Order";
+import PizzaCarousel from "./components/CarouselProds/PizzaCarousel";
 
 function App() {
   const router = createBrowserRouter([
@@ -71,6 +72,10 @@ function App() {
         {
           element: <Order />,
           path: '/order'
+        },
+        {
+          element: <PizzaCarousel />,
+          path: '/pizza/:id'
         },
       ]
     },

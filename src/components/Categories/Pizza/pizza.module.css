@@ -24,6 +24,10 @@
     position: relative;
 }
 
+.pizza_element a {
+    color: black;
+}
+
 .pizza_element div:first-child {
     overflow: hidden;
 }
@@ -89,6 +93,10 @@
     font-weight: 500;
     position: relative;
     cursor: pointer;
+}
+
+.pizza_size li:hover {
+    font-weight: 700;
 }
 
 #current_pizza_size {
@@ -215,7 +223,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
 }
 
 .filters {
