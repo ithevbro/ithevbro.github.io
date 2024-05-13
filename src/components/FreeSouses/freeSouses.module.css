@@ -32,6 +32,8 @@
     font-weight: 700;
     margin-top: 5px;
     font-size: 15px;
+    position: relative;
+    left: -12px;
 }
 
 .prive_quant span {
@@ -95,6 +97,18 @@
     opacity: 1;
 }
 
+@media(max-width: 830px) {
+    .basket_element_info {
+        max-width: 220px;
+    }
+}
+
+@media(max-width: 730px) {
+    .basket_element_info {
+        max-width: 190px;
+        min-width: 150px;
+    }
+}
 
 @media(max-width: 576px) {
     .basket_element_in_list_image {
@@ -106,7 +120,17 @@
         font-size: 13px;
     }
 
+    .basket_element_info {
+        max-width: 150px;
+    }
 }
+
+@media(max-width: 390px){
+    .basket_element_info {
+        min-width: 120px;
+    }
+}
+
 
 @media(max-width: 378px) {
     .bottom_info {

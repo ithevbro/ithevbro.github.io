@@ -12,7 +12,7 @@ function PizzaElement({ item, style, sizeFilter }) {
     const { addToCart, plusElement, minusElement } = useBasketActions()
     let idiwka = item._id + ind + (bortik ? 'bortik' : '')
     const id = cartContext.cartData.find(prod => prod._id === idiwka)
-    let updPizza = { ...item, price: item.price[ind] + (bortik ? item.bortyk[ind] : 0), weight: item.weight[ind], _id: idiwka }
+    let updPizza = { ...item, price: item.price[ind] + (bortik ? item.bortyk[ind] : 0), weight: item.weight[ind], _id: idiwka, bortyk: bortik, size: pizzaSize }
 
     useEffect(() => {
         setPizzaSize(sizeFilter)

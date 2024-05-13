@@ -64,6 +64,7 @@ function Basket() {
                                 <div className={style.basket_element_info}>
                                     <div className={style.basket_element_weight}>{item.weight} г</div>
                                     <div className={style.basket_element_title}>{item.title}</div>
+                                    {item.bortyk && <div className={style.basket_element_weight}>Сирний бортик {item.size} x 1</div>}
                                 </div>
                                 <div className={style.bottom_info}>
                                     <div className={style.btn_cont}>
