@@ -110,7 +110,7 @@ function BasicCarousel() {
                                         <img src="/money-red.svg" alt="" />
                                         <p>Бонуси доступні для оплати наступного замовлення лише в <span><b>додатку</b></span></p>
                                     </li>
-                                    {nazva === 'suhsi' || nazva === 'sets' ?
+                                    {nazva === 'sushi' || nazva === 'sets' ?
                                         < li >
                                             <img src="/info-red.svg" alt="" />
                                             <p>Всі замовлення містять васабі і соєвий соус в обсязі, достатньому для вживання замовленого</p>
