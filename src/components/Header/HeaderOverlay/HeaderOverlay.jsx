@@ -23,10 +23,10 @@ function HeaderOverlay({ handleOverlaySwitch, overlaySwitch }) {
                             <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/sets'} onClick={() => handleOverlaySwitch('close')}><img src="/nav-icons/sets.svg" alt="" /> <span>Сети</span></NavLink>
                         </li>
                         <li>
-                            <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/sneks'} onClick={() => handleOverlaySwitch('close')}><img src="/nav-icons/snaks.svg" alt="" /><span>Фрі та снеки</span></NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/snek'} onClick={() => handleOverlaySwitch('close')}><img src="/nav-icons/snaks.svg" alt="" /><span>Фрі та снеки</span></NavLink>
                         </li>
                         <li>
-                            <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/salats'} onClick={() => handleOverlaySwitch('close')}><img src="/nav-icons/boul.svg" alt="" /> <span>Боули</span></NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/salat'} onClick={() => handleOverlaySwitch('close')}><img src="/nav-icons/boul.svg" alt="" /> <span>Боули</span></NavLink>
                         </li>
                         <li>
                             <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/drinks'} onClick={() => handleOverlaySwitch('close')}><img src="/nav-icons/drinks.svg" alt="" /> <span>Напої</span></NavLink>

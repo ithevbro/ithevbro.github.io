@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import useBasketActions from '../../Cart/BasketActions'
 import style from './sneksElement.module.css'
 import { BasketContext } from '../../Cart/GlobalStateBasket'
-
+import { Link } from 'react-router-dom'
 
 function SneksElement({ data }) {
 
@@ -15,10 +15,10 @@ function SneksElement({ data }) {
 
     return (
         <div className={style.sneks_product}>
-            <div className={style.img_wrapper}><img src={data.image} alt="" /></div>
+            <div className={style.img_wrapper}><Link to={'/snek/' + data._id}><img src={data.image} alt="" /></Link></div>
             <div className={style.sneks_bottom_info}>
                 <div className={style.product_weight}>{data.weight}г</div>
-                <div className={style.product_title}>{data.title}</div>
+                <div className={style.product_title}><Link to={'/snek/' + data._id}>{data.title}</Link></div>
                 <div className={style.sneks_controllers}>
                     <div className={style.product_price}>{data.price} грн</div>
                     {

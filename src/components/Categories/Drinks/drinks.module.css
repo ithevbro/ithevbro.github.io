@@ -80,6 +80,16 @@
     font-weight: 700;
 }
 
+.title a {
+    color: black;
+    transition: color 0.25s;
+}
+
+.title a:hover {
+    color: #921b1b;
+    transition: color 0.25s;
+}
+
 .weight {
     color: #98989d;
 }

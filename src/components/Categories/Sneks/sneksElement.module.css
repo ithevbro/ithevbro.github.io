@@ -61,6 +61,16 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
+.product_title a {
+    color: black;
+    transition: color 0.25s;
+}
+
+.product_title a:hover {
+    color: #921b1b;
+    transition: color 0.25s;
+}
+
 @media(max-width:768px) {
     .sneks_product {
         width: calc(50% - 20px/2);

@@ -22,10 +22,10 @@ function LeftNav({ handleOverlaySwitch, overlaySwitch, hide }) {
                         <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/sets'} ><img src="/nav-icons/sets.svg" alt="" /> <div><span>Сети</span></div></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/sneks'} ><img src="/nav-icons/snaks.svg" alt="" /> <div><span>Фрі та снеки</span></div></NavLink>
+                        <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/snek'} ><img src="/nav-icons/snaks.svg" alt="" /> <div><span>Фрі та снеки</span></div></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/salats'} ><img src="/nav-icons/boul.svg" alt="" /> <div><span>Боули</span></div></NavLink>
+                        <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/salat'} ><img src="/nav-icons/boul.svg" alt="" /> <div><span>Боули</span></div></NavLink>
                     </li>
                     <li>
                         <NavLink className={({ isActive }) => (isActive ? style.active_navlink : "")} to={'/drinks'} ><img src="/nav-icons/drinks.svg" alt="" /> <div><span>Напої</span></div></NavLink>

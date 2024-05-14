@@ -26,6 +26,12 @@
 
 .pizza_element a {
     color: black;
+    transition: color 0.25s;
+}
+
+.pizza_element a:hover {
+    color: #921b1b;
+    transition: color 0.25s;
 }
 
 .pizza_element div:first-child {

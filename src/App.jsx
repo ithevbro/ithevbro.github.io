@@ -13,6 +13,7 @@ import Salats from "./components/Categories/Salats/Salats";
 import Drinks from "./components/Categories/Drinks/Drinks";
 import Order from "./pages/Order/Order";
 import PizzaCarousel from "./components/CarouselProds/PizzaCarousel";
+import BasicCarousel from "./components/CarouselProds/BasicCarousel";
 
 function App() {
   const router = createBrowserRouter([
@@ -33,11 +34,11 @@ function App() {
             },
             {
               element: <Sneks />,
-              path: '/sneks'
+              path: '/snek'
             },
             {
               element: <Salats />,
-              path: '/salats'
+              path: '/salat'
             },
             {
               element: <Drinks />,
@@ -76,6 +77,26 @@ function App() {
         {
           element: <PizzaCarousel />,
           path: '/pizza/:id'
+        },
+        {
+          element: <BasicCarousel />,
+          path: '/sushi/:id'
+        },
+        {
+          element: <BasicCarousel />,
+          path: '/sets/:id'
+        },
+        {
+          element: <BasicCarousel />,
+          path: '/snek/:id'
+        },
+        {
+          element: <BasicCarousel />,
+          path: '/salat/:id'
+        },
+        {
+          element: <BasicCarousel />,
+          path: '/drinks/:id'
         },
       ]
     },

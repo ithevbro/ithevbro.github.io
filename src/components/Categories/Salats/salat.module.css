@@ -46,6 +46,16 @@
     align-items: center;
 }
 
+.title a {
+    color: black;
+    transition: color 0.25s;
+}
+
+.title a:hover {
+    color: #921b1b;
+    transition: color 0.25s;
+}
+
 .product_controls p {
     font-size: 23px;
 }

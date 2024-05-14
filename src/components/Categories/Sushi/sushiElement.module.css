@@ -36,6 +36,16 @@
     margin-bottom: 12px;
 }
 
+.product_title a {
+    color: black;
+    transition: color 0.25s;
+}
+
+.product_title a:hover {
+    color: #921b1b;
+    transition: color 0.25s;
+}
+
 .product_price {
     font-weight: 700;
     font-size: 23px;

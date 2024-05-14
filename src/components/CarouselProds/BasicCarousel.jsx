@@ -1,27 +1,24 @@
-import { useParams, useNavigate, Link } from "react-router-dom"
+import { useParams, useNavigate, Link, useLocation } from "react-router-dom"
 import { getProds } from "../../service/services"
 import LoaderMain from "../Loaders/Loader-main"
-import style from './pizza_carousel.module.css'
+import style from './basic_carousel.module.css'
 import { useState, useEffect, useContext } from "react"
 import { BasketContext } from "../Cart/GlobalStateBasket"
 import useBasketActions from "../Cart/BasketActions"
 
-function PizzaCarousel() {
+function BasicCarousel() {
     // для навігації
-    let { products, loading } = getProds('pizza')
+    let path = useLocation().pathname
+    let nazva = path.slice(1, path.lastIndexOf('/'))
+    let { products, loading } = getProds(nazva)
     let id = useParams().id
     let sliderIndex = products.findIndex(item => item._id === id)
     const [slider, setSlider] = useState(sliderIndex)
     let nav = useNavigate()
     // для корзини
-    const [pizzaSize, setPizzaSize] = useState(22)
-    const [bortik, setBortik] = useState(false)
-    const [ind, setInd] = useState(0)
     const cartContext = useContext(BasketContext).cartData
     const { addToCart, plusElement } = useBasketActions()
-    let idiwka = products[slider]?._id + ind + (bortik ? 'bortik' : '')
-    const idCart = cartContext.find(prod => prod._id === idiwka)
-    let updPizza = { ...products[slider], price: products[slider]?.price[ind] + (bortik ? products[slider]?.bortyk[ind] : 0), weight: products[slider]?.weight[ind], _id: idiwka, bortyk: bortik, size: pizzaSize }
+    const idCart = cartContext.find(prod => prod._id === id)
 
     useEffect(() => {
         setSlider(sliderIndex)
@@ -31,45 +28,21 @@ function PizzaCarousel() {
     function nextSlide() {
         if (slider == products.length - 1) {
             setSlider(0)
-            nav('/pizza/' + products[0]._id)
+            nav(`/${nazva}/` + products[0]._id)
         } else {
             setSlider(slider + 1)
-            nav('/pizza/' + products[slider + 1]._id)
+            nav(`/${nazva}/` + products[slider + 1]._id)
         }
-        setPizzaSize(22)
-        indexHandler(22)
     }
 
     function prevSlide() {
         if (slider <= 0) {
             setSlider(products.length - 1)
-            nav('/pizza/' + products[products.length - 1]._id)
+            nav(`/${nazva}/` + products[products.length - 1]._id)
         } else {
             setSlider(slider - 1)
-            nav('/pizza/' + products[slider - 1]._id)
+            nav(`/${nazva}/` + products[slider - 1]._id)
         }
-        setPizzaSize(22)
-        indexHandler(22)
-    }
-
-    function toggleBortik() {
-        setBortik(!bortik)
-    }
-
-    function indexHandler(size) {
-        if (size === 22) {
-            setInd(0)
-        } else if (size === 30) {
-            setInd(1)
-        } else {
-            setInd(2)
-        }
-    }
-
-    function currentSize(size) {
-        setBortik(false)
-        setPizzaSize(size)
-        indexHandler(size)
     }
 
     function sumMiniCart() {
@@ -83,6 +56,23 @@ function PizzaCarousel() {
         return qnt
     }
 
+    function navName() {
+        switch (nazva) {
+            case 'sushi':
+                return 'Суші'
+            case 'sets':
+                return 'Cети'
+            case 'snek':
+                return 'Фрі та снеки'
+            case 'salat':
+                return 'Боули'
+            case 'drinks':
+                return 'Напої'
+            default:
+                return 'Суші'
+        }
+    }
+
     return (
         <ul className={style.wrapper}>
             {loading || slider == -1 ? <LoaderMain /> :
@@ -90,7 +80,7 @@ function PizzaCarousel() {
                     <nav>
                         <ul className={style.nav}>
                             <li><Link to={'/'}>Головна</Link></li>
-                            <li><Link to={'/pizza'}>Піца</Link></li>
+                            <li><Link to={'/' + nazva}>{navName()}</Link></li>
                             <li>{products[slider].title}</li>
                         </ul>
                     </nav>
@@ -101,22 +91,16 @@ function PizzaCarousel() {
                         <div className={style.cont}>
                             <div className={style.img_wrapper}> <img src={products[slider].image} alt="" /></div>
                             <div className={style.right}>
-                                <p className={style.weight}>{products[slider].weight[ind]} г</p>
+                                <p className={style.weight}>{products[slider].weight} г</p>
                                 <h2 className={style.title}>{products[slider].title}</h2>
                                 <div className={style.desc_cart_wrapper}>
                                     <p className={style.description}>{products[slider].desription}</p>
-                                    <button className={style.mini_cart} onClick={idCart?.q > 0 ? () => plusElement(idCart) : () => addToCart(updPizza)}>
+                                    <button className={style.mini_cart} onClick={idCart?.q > 0 ? () => plusElement(idCart) : () => addToCart(products[slider])}>
                                         <span className={style.amount}>{sumMiniCart()}</span>
-                                        <span className={style.price}>{bortik ? products[slider].bortyk[ind] + products[slider].price[ind] : products[slider].price[ind]}</span>
+                                        <span className={style.price}>{products[slider].price}</span>
                                         <img src="/icon-mini-cart-loaded.svg" alt="" />
                                     </button>
                                 </div>
-                                <ul className={style.pizza_size}>
-                                    <li id={pizzaSize === 22 ? style.current_pizza_size : ''} onClick={() => currentSize(22)}>22 см</li>
-                                    <li id={pizzaSize === 30 ? style.current_pizza_size : ''} onClick={() => currentSize(30)}>30 см</li>
-                                    <li id={pizzaSize === 40 ? style.current_pizza_size : ''} onClick={() => currentSize(40)}>40 см</li>
-                                </ul>
-                                {pizzaSize > 22 ? <button onClick={toggleBortik} className={`${style.bortik} ${bortik ? style.bortiktrue : ''}`}>{bortik ? 'Видалити сирний бортик' : 'Додати сирний бортик'}</button> : null}
                                 <ul className={style.red}>
                                     <li>
                                         <img src="/scooter-red.svg" alt="" />
@@ -126,6 +110,11 @@ function PizzaCarousel() {
                                         <img src="/money-red.svg" alt="" />
                                         <p>Бонуси доступні для оплати наступного замовлення лише в <span><b>додатку</b></span></p>
                                     </li>
+                                    {nazva === 'suhsi' || nazva === 'sets' ?
+                                        < li >
+                                            <img src="/info-red.svg" alt="" />
+                                            <p>Всі замовлення містять васабі і соєвий соус в обсязі, достатньому для вживання замовленого</p>
+                                        </li> : null}
                                 </ul>
                             </div>
                         </div>
@@ -133,12 +122,10 @@ function PizzaCarousel() {
                             <img src="/arrow-right-slider.png" alt="" />
                         </button>
                     </li>
-
-
                 </>
             }
-        </ul>
+        </ul >
     )
 }
 
-export default PizzaCarousel
+export default BasicCarousel
