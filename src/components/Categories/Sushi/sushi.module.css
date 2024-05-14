@@ -67,6 +67,8 @@
     flex-wrap: wrap;
 }
 
+
+
 @media(max-width:768px) {
     .prod_wrapper {
         padding: 0 10px;

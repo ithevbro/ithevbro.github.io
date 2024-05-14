@@ -1,6 +1,7 @@
 import useBasketActions from "../../Cart/BasketActions"
 import { BasketContext } from "../../Cart/GlobalStateBasket"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 
 function SalatElement({ style, item }) {
     const cartContext = useContext(BasketContext)
@@ -9,10 +10,10 @@ function SalatElement({ style, item }) {
 
     return (
         <li className={style.prod_element}>
-            <div className={style.img_wrapper}><img src={item.image} alt="" /></div>
+            <div className={style.img_wrapper}><Link to={'/salat/' + item._id}><img src={item.image} alt="" /></Link></div>
             <div className={style.product_description}>
                 <p className={style.weight}>{item.weight} Г</p>
-                <p className={style.title}><b>{item.title}</b></p>
+                <p className={style.title}><b><Link to={'/salat/' + item._id}>{item.title}</Link></b></p>
                 <div className={style.product_controls}>
                     <p><b>{item.price} грн</b></p>
                     {
