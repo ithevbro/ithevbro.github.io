@@ -1,0 +1,196 @@
+.order_main_container {
+    margin-top: 65px;
+    padding-left: calc((100vw - 1430px) / 2);
+    padding-right: calc((100vw - 1430px) / 2);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.order_check {
+    background-color: #ee3545;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    font-weight: 600;
+    height: 30px;
+}
+
+.order_main_container h1 {
+    font-weight: 700;
+    font-size: 27px;
+    text-align: center;
+}
+
+.order_form {
+    display: flex;
+    margin-top: 10px
+}
+
+.order_left_container h5 {
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.order_left_container {
+    width: 50%;
+}
+
+.order_right_container {
+    width: 50%;
+}
+
+.row_inputs_container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.radio_buttons_container {
+    position: relative;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.radio_buttons_container input {
+    position: relative;
+    left: -25px;
+    visibility: hidden;
+}
+
+.radio_element {
+    position: relative;
+}
+
+.radio_circle::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    border: 1px #484848 solid;
+    box-sizing: border-box;
+}
+
+.radio_circle::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background: none;
+    box-sizing: border-box;
+}
+
+.radio_circle_active::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    border: 1px #484848 solid;
+    box-sizing: border-box;
+}
+
+
+.radio_circle_active::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background: #921b1b;
+    box-sizing: border-box;
+}
+
+.radio_element label {
+    margin-left: 22px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.delivery_details {
+    display: flex;
+    gap: 30px;
+}
+
+.previouse_order {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.previouse_order div {
+    flex-grow: 1;
+}
+
+
+.checkbox_container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 500;
+    width: 50px;
+    margin-top: 30px;
+}
+
+.checkbox_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.check_mark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid rgba(152,152,157,.5);
+    border-radius: 5px;
+}
+
+.active_image {
+    margin: 3px;
+    transform: scale(1);
+    transition: all .25s ease;
+}
+
+.none_active_image {
+    margin: 3px;
+    transform: scale(0);
+    transition: all .25s ease;
+}
+
+
+.change_payment {
+    margin-top: 30px;
+    width: 212px;
+}
+
+
+.order_right_container h1 {
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 15px;
+}

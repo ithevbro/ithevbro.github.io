@@ -1,4 +1,4 @@
-import style from "./auth.module.css"
+ import style from "./auth.module.css"
 import { useContext } from "react"
 import { GlobalOverlayState } from "../../global-state/GlobalOverlay"
 import Calendar from "../Inputs/Calendar"
