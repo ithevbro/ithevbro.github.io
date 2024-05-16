@@ -27,7 +27,7 @@ function Calendar() {
                 if (i < data && !pusti) {
                     cells.push(<td key={-i}>{null}</td>)
                 } else {
-                    cells.push(<td className={i == day ? style.active_td : ''} onClick={() => { dayChange(i) }} key={i}>{i}</td>)
+                    cells.push(<td className={i === day ? style.active_td + ' ' + style.enabled_td : style.enabled_td} onClick={() => { dayChange(i) }} key={i}>{i}</td>)
                 }
                 if (cells.length > 6) {
                     let row = <tr key={i + cells.length}>{cells}</tr>
@@ -98,7 +98,7 @@ function Calendar() {
     return (
         <div className={style.boss_calc}>
             <label htmlFor="calendar" className={style.label_calculator}>
-                <input readOnly value={inputValue} name='calendar' type="text" onFocus={handleOnFocus} id='calendar'/>
+                <input readOnly value={inputValue} name='calendar' type="text" onFocus={handleOnFocus} id='calendar' />
                 <span className={`${style.calendar_span} ${focus || touched ? style.span_bottom : ''} `}>День народження</span>
             </label>
             <div className={`${style.calendar} ${!focus ? style.hide : ''} `}>
