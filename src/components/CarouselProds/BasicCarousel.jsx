@@ -47,9 +47,8 @@ function BasicCarousel() {
 
     function sumMiniCart() {
         let qnt = 0
-        let length = id.length
         cartContext.forEach(el => {
-            if (id === el._id.slice(0, length)) {
+            if (id === el._id) {
                 qnt += el.q
             }
         })

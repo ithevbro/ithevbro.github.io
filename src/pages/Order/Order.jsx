@@ -3,7 +3,7 @@ import BasicInput from '../../components/Inputs/BasicInput'
 import Phone from '../../components/Inputs/Phone'
 import { useState } from 'react'
 import SelectCity from '../../components/selectCity/SelectCity'
-import Calendar from '../../components/Inputs/Calendar'
+import CalendarOrder from '../../components/Inputs/CalendarOrder'
 
 
 function Order() {
@@ -81,7 +81,7 @@ function Order() {
                             {
                                 selectData.delivery === 'Попереднє замовлення' &&
                                 <div className={style.previouse_order}>
-                                    <div><Calendar /></div>
+                                    <div><CalendarOrder /></div>
                                     <SelectCity data={['10:30', '11:30', '12:30', '13:30', '14:30', '15:30', '16:30', '17:30']} setSelectData={setSelectData} selectType={'deliveryTime'} />
                                 </div>
                             }
