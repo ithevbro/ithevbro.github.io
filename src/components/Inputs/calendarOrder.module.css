@@ -15,7 +15,7 @@
 .boss_calc {
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    max-width: 327.5px;
     position: relative;
     z-index: 2;
 }
@@ -32,7 +32,7 @@
     z-index: 1;
     font-size: 15px;
     line-height: 30px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .calendar.hide {
@@ -59,38 +59,20 @@
     cursor: pointer;
 }
 
+.disabled_td {
+    color: rgb(158, 158, 163);
+}
+
 .calendar th {
     width: 38.42px;
     height: 30px;
     color: #98989d;
 }
 
-.upravlinnya div {
-    display: flex;
-    justify-content: space-around;
-}
-
-.upravlinnya th:nth-child(1):hover,
-.upravlinnya th:nth-child(3):hover {
+.upravlinnya th {
     color: #921b1b;
-}
-
-.calendar select {
-    border: 0;
-    outline: 0;
     font-weight: 700;
-}
-
-.calendar select::-webkit-scrollbar {
-    width: 5px;
-}
-
-.calendar select::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.calendar select::-webkit-scrollbar-thumb {
-    background: #22262a;
+    font-size: 16px;
 }
 
 .label_calculator {
