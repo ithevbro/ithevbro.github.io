@@ -13,26 +13,8 @@ function Basket() {
     const dataCart = useContext(BasketContext)
     const souseData = useContext(SouseContext)
     const { plusElement, minusElement, removeFromCart } = useBasketActions()
+    const [dispaySouses, setDisplaySouse] = useState(false)
 
-    const [isShushi, setIsSushi] = useState([])
-    let souse = localStorage.getItem('souseInStorage')
-    useEffect(() => {
-        if (dataCart.cartData[dataCart.cartData.length - 1]?.productType === 'sushi' && !isShushi.includes(dataCart.cartData[dataCart.cartData.length - 1]?._id)) {
-            setIsSushi(p => [...p, dataCart.cartData[dataCart.cartData.length - 1]?._id])
-        }
-    }, [dataCart.cartData, isShushi])
-
-    useEffect(() => {
-        if (isShushi.length > 0) {
-            souseData.setSouseData({ type: 'souse', elem: JSON.parse(souse) } || { type: 'souse', elem: { ...souseData.souseData, isVisible: true } })
-        } else {
-            souseData.setSouseData({ type: 'souse', elem: { ...souseData.souseData, isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 } })
-            setTimeout(() => {
-                localStorage.setItem('souseInStorage', JSON.stringify({ isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 }))
-            }, 1000)
-        }
-
-    }, [isShushi])
 
     function sum() {
         let sum = 0
@@ -40,17 +22,47 @@ function Basket() {
         for (let i = 0; i < dataCart.cartData.length; i++) {
             sum += dataCart.cartData[i].price * dataCart.cartData[i].q
         }
-        sum += souseData.souseData.totalSoy
-        sum += souseData.souseData.totalSet
+
+        if (dispaySouses) {
+            sum += souseData.souseData.totalSoy
+            sum += souseData.souseData.totalSet
+        }
+
         sum += 45
         if (sum === 45) return 0
         return sum
     }
 
 
-    function d(id) {
-        setIsSushi(isShushi.filter(i => i !== id))
-    }
+    // function checkSushi() {
+    //     let res = false
+    //     for (let i = 0; i < dataCart.cartData.length; i++) {
+    //         if (dataCart.cartData[i].productType === 'sushi')
+    //             res = true
+    //     }
+    //     return res
+    // }
+
+    useEffect(() => {
+        const hasSushi = dataCart.cartData.some(item => item.productType === 'sushi')
+        setDisplaySouse(hasSushi)
+    }, [dataCart])
+
+
+    useEffect(() => {
+        if (!dispaySouses) {
+            const timeoutId = setTimeout(() => {
+
+                souseData.setSouseData({
+                    type: 'remove',
+                    elem: { isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 }
+                })
+            }, 50)
+
+            return () => clearTimeout(timeoutId)
+        }
+    }, [dispaySouses, souseData])
+
 
     return (
         <div className={style.bs2}>
@@ -87,12 +99,12 @@ function Basket() {
                                 <div className={style.btn_delete_from_cart} onClick={(e) => {
                                     e.preventDefault()
                                     removeFromCart(item)
-                                    d(item._id)
                                 }}></div>
                             </div>
                         )
                     })}
-                    {isShushi.length > 0 && <FreeSouses />}
+                    {/* {checkSushi() && <FreeSouses />} */}
+                    {dispaySouses && <FreeSouses />}
                     <hr className={style.border_bottom_basket} />
                     <div className={style.cont_payment_basket}>
                         <div className={style.basket_summary}>

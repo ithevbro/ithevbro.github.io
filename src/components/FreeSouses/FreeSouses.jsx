@@ -1,13 +1,16 @@
 import { useContext } from 'react'
 import style from './freeSouses.module.css'
 import { SouseContext } from './GlobalStateSouse';
+import { BasketContext } from '../Cart/GlobalStateBasket';
 
 
 function FreeSouses() {
 
     const souseData = useContext(SouseContext)
+
     localStorage.setItem('souseInStorage', JSON.stringify(souseData.souseData))
-    
+
+  
     function plus(item) {
         if (item === 'soy') {
             souseData.setSouseData({

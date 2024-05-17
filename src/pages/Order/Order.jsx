@@ -3,8 +3,8 @@ import BasicInput from '../../components/Inputs/BasicInput'
 import Phone from '../../components/Inputs/Phone'
 import { useState } from 'react'
 import SelectCity from '../../components/selectCity/SelectCity'
+import OrderBasket from '../../components/Cart/OrderBasket'
 import CalendarOrder from '../../components/Inputs/CalendarOrder'
-
 
 function Order() {
 
@@ -124,6 +124,7 @@ function Order() {
                 </div>
                 <div className={style.order_right_container}>
                     <h1>Ваше замовлення</h1>
+                    <OrderBasket/>
                 </div>
             </form>
         </div>
