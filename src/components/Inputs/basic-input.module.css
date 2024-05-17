@@ -17,6 +17,7 @@
     background-color: transparent;
     font-weight: 700;
     z-index: 1;
+    width: 100%;
 }
 
 .input_span {

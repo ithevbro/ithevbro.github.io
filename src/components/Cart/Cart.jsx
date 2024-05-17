@@ -15,10 +15,14 @@ function Cart() {
         for (let i = 0; i < dataCart.cartData.length; i++) {
             sum += dataCart.cartData[i].price * dataCart.cartData[i].q
         }
-        sum += souseData.souseData.totalSet
+
+
         sum += souseData.souseData.totalSoy
+        sum += souseData.souseData.totalSet
+
+
         sum += 45
-        if(sum === 45) return 0
+        if (sum === 45) return 0
         return sum
     }
 
@@ -30,6 +34,7 @@ function Cart() {
         }
         return quantity
     }
+
 
     return (
         <div className={style.cart} onClick={() => setGlobalOverlayData({ type: 'basket' })}>

@@ -16,6 +16,7 @@ function Layout() {
     const [cartData, setCartData] = useReducer(reducerBasket, JSON.parse(products) || [])
     const [souseData, setSouseData] = useReducer(reducerSouse, JSON.parse(souse) || { isVisible: false, usual: 0, study: 0, soy: 0, totalSet: 0, totalSoy: 0 })
 
+
     return (
         <BasketContext.Provider value={{ cartData, setCartData }}>
             <SouseContext.Provider value={{ souseData, setSouseData }}>

@@ -22,7 +22,6 @@ function reducerBasket(state, action) {
             }
         })
     } else if (action.type === 'delete') {
-
         return state.filter(item => {
             if (item._id !== action.element._id) {
                 return item
