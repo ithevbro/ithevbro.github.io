@@ -48,6 +48,38 @@
     margin-bottom: 30px;
 }
 
+.row_inputs_container>* {
+    width: calc(33.3% - (30px*2) / 3);
+}
+
+.row_inputs_container2 {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.row_inputs_container2 label:nth-child(1) {
+    width: calc(33.3% - 15px);
+}
+
+.row_inputs_container2 label:nth-child(2) {
+    width: 66.735%;
+}
+
+.row_inputs_container3 {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.row_inputs_container3 div {
+    width: calc(33.3% - 15px);
+}
+
+.row_inputs_container3 label {
+    width: 66.735%;
+}
+
 .radio_buttons_container {
     position: relative;
     display: flex;
@@ -125,6 +157,10 @@
     gap: 30px;
 }
 
+.delivery_details>* {
+    width: calc(33.3% - (30px*2) / 3);
+}
+
 .previouse_order {
     display: flex;
     gap: 30px;
@@ -186,7 +222,7 @@
 
 .change_payment {
     margin-top: 30px;
-    width: 212px;
+    width: calc(33.3% - (30px*2) / 3);
 }
 
 
@@ -292,16 +328,13 @@
         padding-right: 60px;
     }
 
+
     .order_form {
         flex-direction: column;
     }
 
-    .row_inputs_container>* {
-        width: 33.3%;
-    }
-
-    .row_inputs_container {
-        max-width: 100%;
+    .order_right_container {
+        margin-top: 25px;
     }
 
     .order_left_container {
@@ -317,5 +350,53 @@
     .order_main_container {
         padding-left: 15px;
         padding-right: 15px;
+    }
+}
+
+@media(max-width:768px) {
+    .row_inputs_container {
+        flex-direction: column;
+    }
+
+    .row_inputs_container>* {
+        width: 100%;
+    }
+
+    .row_inputs_container2 {
+        flex-direction: column;
+    }
+
+    .row_inputs_container2 label:nth-child(1) {
+        width: 100%;
+    }
+    
+    .row_inputs_container2 label:nth-child(2) {
+        width: 100%;
+    }
+
+    .row_inputs_container3 {
+        flex-direction: column;
+    }
+
+    .row_inputs_container3 div {
+        width: 100%;
+    }
+    .row_inputs_container3 label {
+        width: 100%;
+    }
+
+    .delivery_details {
+        flex-direction: column;
+    }
+    
+    .delivery_details>* {
+        width: 100%;
+    }
+    .change_payment {
+        width: 100%;
+    }
+    
+    .check_mark {
+        top: -2px;
     }
 }

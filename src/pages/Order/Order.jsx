@@ -60,7 +60,7 @@ function Order() {
                     <h5>Персональні дані</h5>
                     <div className={style.row_inputs_container}>
                         <BasicInput placeholder="І'мя *" inputName='orderUserName' inputType='text' />
-                        <div className={style.phone_number_order}><Phone placeholder={'Телефон *'} id={'orderPhoneNumber'} /></div>
+                        <Phone placeholder={'Телефон *'} id={'orderPhoneNumber'} />
                         <BasicInput placeholder={'Ел. скринька'} inputName={'orderEmail'} inputType={'email'} />
                     </div>
                     <div className={style.radio_buttons_container}>
@@ -87,16 +87,16 @@ function Order() {
                                 <BasicInput placeholder='Квартира' inputName='orderFlat' inputType='text' />
                                 <BasicInput placeholder="Під'їзд" inputName='orderEntrance' inputType='text' />
                             </div>
-                            <div className={style.row_inputs_container}>
+                            <div className={style.row_inputs_container2}>
                                 <BasicInput placeholder='Поверх' inputName='orderFloor' inputType='text' />
-                                <div className={style.komentar}><BasicInput placeholder='Коментар' inputName='orderComment' inputType='text' /></div>
+                                <BasicInput placeholder='Коментар' inputName='orderComment' inputType='text' />
                             </div>
                         </div>}
                     {check.dos &&
                         <div>
-                            <div className={style.row_inputs_container}>
+                            <div className={style.row_inputs_container3}>
                                 <SelectCity data={['Львів', 'Зубра', 'Солонка', 'Брюховичі', 'Зимна Вода', 'Підбірці', 'Малехів', 'Муроване']} setSelectData={setSelectData} selectType={'cities'} />
-                                <div style={{ width: '450px' }}><BasicInput placeholder='Коментар' inputName='orderComment' inputType='text' /></div>
+                                <BasicInput placeholder='Коментар' inputName='orderComment' inputType='text' />
                             </div>
                         </div>
                     }
@@ -130,7 +130,7 @@ function Order() {
                             {
                                 selectData.deliverySelf === 'Попереднє замовлення' &&
                                 <div className={style.previouse_order}>
-                                    <div><Calendar /></div>
+                                    <div><CalendarOrder /></div>
                                     <SelectCity data={['10:30', '11:30', '12:30', '13:30', '14:30', '15:30', '16:30', '17:30']} setSelectData={setSelectData} selectType={'deliverySelfTime'} />
                                 </div>
                             }
