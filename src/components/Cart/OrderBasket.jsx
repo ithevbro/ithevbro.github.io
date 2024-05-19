@@ -11,7 +11,7 @@ function OrderBasket() {
     const dataCart = useContext(BasketContext)
     const souseData = useContext(SouseContext)
     const { plusElement, minusElement, removeFromCart } = useBasketActions()
-
+    const [callMe, setCallMe] = useState(false)
 
     function sum() {
         let sum = 0
@@ -19,7 +19,7 @@ function OrderBasket() {
         for (let i = 0; i < dataCart.cartData.length; i++) {
             sum += dataCart.cartData[i].price * dataCart.cartData[i].q
         }
-        
+
         if (checkSushi()) {
             sum += souseData.souseData.totalSoy
             sum += souseData.souseData.totalSet
@@ -71,14 +71,20 @@ function OrderBasket() {
                         <div className={style.btn_delete_from_cart} onClick={(e) => {
                             e.preventDefault()
                             removeFromCart(item)
-                            // deleteSousesFormStorage()
                         }}></div>
                     </div>
                 )
             })}
             {checkSushi() && <FreeSouses />}
+            <label className={style.checkbox_container}>Мені можна не телефонувати для підтвердження замовлення
+                <input type="checkbox" checked={callMe} onChange={(e) => setCallMe(e.target.checked)} />
+                <span className={style.check_mark}><img className={callMe ? style.active_image : style.none_active_image} src="https://smaki-maki.com/wp-content/themes/smaki/img/icons/icon-select.svg" alt="" /></span>
+            </label>
             <hr className={style.border_bottom_basket} />
             <div className={style.cont_payment_basket}>
+                {sum() < 1 && <div className={style.min_order_info}>
+                    Сума мінімального замовлення в Зеленій зоні - 400 грн, у Жовтій зоні - 700 грн. В суму мінімального замовлення не входять напої
+                </div>}
                 <div className={style.basket_summary}>
                     {sum() > 0 && <div className={style.basket_display_info_sum}>
                         <div className={style.sum_info}>
@@ -98,7 +104,6 @@ function OrderBasket() {
                         <div>До оплати:</div>
                         <div>{sum()} грн</div>
                     </div>
-                    <div className={style.texts}>adsasadsads</div>
                 </div>
             </div>
         </>

@@ -167,7 +167,7 @@
     height: 25px;
     width: 25px;
     background-color: white;
-    border: 1px solid rgba(152,152,157,.5);
+    border: 1px solid rgba(152, 152, 157, .5);
     border-radius: 5px;
 }
 
@@ -196,16 +196,126 @@
     margin-bottom: 15px;
 }
 
+.use_bonuses {
+    padding: 20px;
+    border: 1px solid #3aad49;
+    text-align: center;
+    line-height: 20px;
+    font-size: 13px;
+}
 
-@media (max-width: 1200px) {
+.btn_zamovyty {
+    background-color: #921b1b;
+    border: 1px solid #921b1b;
+    border-radius: 28px;
+    color: #fff;
+    padding: 15px 25px;
+    transition: 0.25s;
+    min-width: 240px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 0 auto;
+    display: block;
+    margin-top: 25px;
+}
+
+.btn_zamovyty_disabled {
+    color: #fff;
+    border: 1px solid #b35f5f;
+    background: #b35f5f;
+    border-radius: 28px;
+    padding: 15px 25px;
+    transition: 0.25s;
+    min-width: 240px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 0 auto;
+    display: block;
+    margin-top: 25px;
+    cursor: default;
+}
+
+
+.btn_zamovyty:hover {
+    background-color: #fff;
+    color: #921b1b;
+}
+
+.min_order_info {
+    font-size: 14px;
+    color: rgba(212, 0, 0, 0.6);
+    border: 1px solid rgba(212, 0, 0, 0.3);
+    padding: 15px 15px 15px 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.use_bonuses a {
+    font-weight: 700;
+    color: #921b1b;
+}
+
+.use_bonuses a::after {
+    content: '';
+    background-image: url('https://smaki-maki.com/wp-content/themes/smaki/img/link-click.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-right: 15px;
+    margin: 0 4px;
+    width: 20px;
+    height: 20px;
+}
+
+.komentar {
+    width: 100%;
+    max-width: 455px;
+}
+
+.phone_number_order {
+    width: 33%;
+}
+
+
+@media(max-width:1600px) {
+    .order_main_container {
+        padding-left: 90px;
+        padding-right: 25px;
+    }
+}
+
+@media(max-width:1200px) {
+    .order_main_container {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
     .order_form {
         flex-direction: column;
     }
+
+    .row_inputs_container>* {
+        width: 33.3%;
+    }
+
+    .row_inputs_container {
+        max-width: 100%;
+    }
+
     .order_left_container {
         width: 100%;
     }
-    
+
     .order_right_container {
         width: 100%;
+    }
+}
+
+@media(max-width:992px) {
+    .order_main_container {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }

@@ -9,6 +9,7 @@
     color: white;
     opacity: 0;
 }
+
 .basket_element_in_list:hover .basket_buy_button {
     opacity: 1;
 }
@@ -209,6 +210,66 @@
 
 .basket_element_in_list:hover .btn_delete_from_cart {
     opacity: 1;
+}
+
+
+.checkbox_container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.checkbox_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.check_mark {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid rgba(152, 152, 157, .5);
+    border-radius: 5px;
+}
+
+.active_image {
+    margin: 3px;
+    transform: scale(1);
+    transition: all .25s ease;
+}
+
+.none_active_image {
+    margin: 3px;
+    transform: scale(0);
+    transition: all .25s ease;
+}
+
+.min_order_info {
+    font-size: 14px;
+    color: rgba(212, 0, 0, 0.6);
+    border: 1px solid rgba(212, 0, 0, 0.3);
+    padding: 15px 15px 15px 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
 @media(max-width: 1200px) {

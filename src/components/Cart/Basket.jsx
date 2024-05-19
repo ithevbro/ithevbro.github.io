@@ -34,15 +34,6 @@ function Basket() {
     }
 
 
-    // function checkSushi() {
-    //     let res = false
-    //     for (let i = 0; i < dataCart.cartData.length; i++) {
-    //         if (dataCart.cartData[i].productType === 'sushi')
-    //             res = true
-    //     }
-    //     return res
-    // }
-
     useEffect(() => {
         const hasSushi = dataCart.cartData.some(item => item.productType === 'sushi')
         setDisplaySouse(hasSushi)
@@ -103,7 +94,6 @@ function Basket() {
                             </div>
                         )
                     })}
-                    {/* {checkSushi() && <FreeSouses />} */}
                     {dispaySouses && <FreeSouses />}
                     <hr className={style.border_bottom_basket} />
                     <div className={style.cont_payment_basket}>
