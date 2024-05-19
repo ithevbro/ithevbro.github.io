@@ -1,12 +1,17 @@
 import style from './order.module.css'
 import BasicInput from '../../components/Inputs/BasicInput'
 import Phone from '../../components/Inputs/Phone'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import SelectCity from '../../components/selectCity/SelectCity'
 import OrderBasket from '../../components/Cart/OrderBasket'
 import CalendarOrder from '../../components/Inputs/CalendarOrder'
+import { BasketContext } from '../../components/Cart/GlobalStateBasket'
+import { SouseContext } from '../../components/FreeSouses/GlobalStateSouse'
 
 function Order() {
+
+    const dataCart = useContext(BasketContext)
+    const souseData = useContext(SouseContext)
 
     const [check, setCheck] = useState({
         cur: true,
@@ -21,6 +26,31 @@ function Order() {
     const [checkBox, setCheckBox] = useState(false)
 
 
+    function sum() {
+        let sum = 0
+
+        for (let i = 0; i < dataCart.cartData.length; i++) {
+            sum += dataCart.cartData[i].price * dataCart.cartData[i].q
+        }
+
+        if (checkSushi()) {
+            sum += souseData.souseData.totalSoy
+            sum += souseData.souseData.totalSet
+        }
+        sum += 45
+        if (sum === 45) return 0
+        return sum
+    }
+
+    function checkSushi() {
+        let res = false
+        for (let i = 0; i < dataCart.cartData.length; i++) {
+            if (dataCart.cartData[i].productType === 'sushi')
+                res = true
+        }
+        return res
+    }
+
     return (
         <div className={style.order_main_container}>
             <h1>Оформити замовлення</h1>
@@ -30,7 +60,7 @@ function Order() {
                     <h5>Персональні дані</h5>
                     <div className={style.row_inputs_container}>
                         <BasicInput placeholder="І'мя *" inputName='orderUserName' inputType='text' />
-                        <Phone placeholder={'Телефон *'} id={'orderPhoneNumber'} />
+                        <div className={style.phone_number_order}><Phone placeholder={'Телефон *'} id={'orderPhoneNumber'} /></div>
                         <BasicInput placeholder={'Ел. скринька'} inputName={'orderEmail'} inputType={'email'} />
                     </div>
                     <div className={style.radio_buttons_container}>
@@ -59,7 +89,7 @@ function Order() {
                             </div>
                             <div className={style.row_inputs_container}>
                                 <BasicInput placeholder='Поверх' inputName='orderFloor' inputType='text' />
-                                <div style={{ width: '450px' }}><BasicInput placeholder='Коментар' inputName='orderComment' inputType='text' /></div>
+                                <div className={style.komentar}><BasicInput placeholder='Коментар' inputName='orderComment' inputType='text' /></div>
                             </div>
                         </div>}
                     {check.dos &&
@@ -123,8 +153,12 @@ function Order() {
                     </div>
                 </div>
                 <div className={style.order_right_container}>
-                    <h1>Ваше замовлення</h1>
-                    <OrderBasket/>
+                    <h1 style={{ textAlign: 'start' }}>Ваше замовлення</h1>
+                    <OrderBasket />
+                    <div className={style.use_bonuses}>
+                        Використати накопичені бонусні гривні на оплату наступних замовлень можна лише через <a href="">додаток</a>
+                    </div>
+                    {sum() > 0 ? <button className={style.btn_zamovyty}>Замовити</button> : <button className={style.btn_zamovyty_disabled} disabled>Замовити</button>}
                 </div>
             </form>
         </div>

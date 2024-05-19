@@ -1,8 +1,6 @@
 import { useContext } from 'react'
 import style from './freeSouses.module.css'
 import { SouseContext } from './GlobalStateSouse';
-import { BasketContext } from '../Cart/GlobalStateBasket';
-
 
 function FreeSouses() {
 
@@ -62,14 +60,14 @@ function FreeSouses() {
                 </div>
                 <div className={style.bottom_info}>
                     <div className={style.btn_cont}>
-                        <button id={style.btn} onClick={(e) => {
+                        <button className={style.basket_buy_button} onClick={(e) => {
                             e.preventDefault()
                             minus('usual')
                         }}>
                             -
                         </button>
                         <span className={style.item_quantity}>{souseData.souseData.usual}</span>
-                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
+                        <button className={style.basket_buy_button} onClick={(e) => {
                             e.preventDefault()
                             plus('usual')
                         }}>
@@ -77,14 +75,14 @@ function FreeSouses() {
                         </button>
                     </div>
                     <div className={style.btn_cont}>
-                        <button id={style.btn} onClick={(e) => {
+                        <button className={style.basket_buy_button} onClick={(e) => {
                             e.preventDefault()
                             minus('study')
                         }}>
                             -
                         </button>
                         <span className={style.item_quantity}>{souseData.souseData.study}</span>
-                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
+                        <button className={style.basket_buy_button} onClick={(e) => {
                             e.preventDefault()
                             plus('study')
                         }}>
@@ -101,14 +99,14 @@ function FreeSouses() {
                 </div>
                 <div className={style.bottom_info}>
                     <div className={style.btn_cont}>
-                        <button id={style.btn} onClick={(e) => {
+                        <button className={style.basket_buy_button} onClick={(e) => {
                             e.preventDefault()
                             minus('soy')
                         }}>
                             -
                         </button>
                         <span className={style.item_quantity}>{souseData.souseData.soy}</span>
-                        <button className={style.plus_minus_btn} id={style.btn} onClick={(e) => {
+                        <button className={style.basket_buy_button} onClick={(e) => {
                             e.preventDefault()
                             plus('soy')
                         }}>
